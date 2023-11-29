@@ -6,7 +6,7 @@
         "ranking": "4",
         "price": "50$",
         "discount": "40%",
-        "image": "/Images/1.jpeg",
+        "image": "./images/1.jpeg",
         "ID": "1"
     },
     {
@@ -16,7 +16,7 @@
         "ranking": "5",
         "price": "25$",
         "discount": "0%",
-        "image": "/Images/2.jpeg",
+        "image": "./images/2.jpeg",
         "ID": "2"
     },
     {
@@ -26,7 +26,7 @@
         "ranking": "5",
         "price": "40$",
         "discount": "0%",
-        "image": "/Images/3.jpeg",
+        "image": "./images/3.jpeg",
         "ID": "3"
     },
     {
@@ -36,7 +36,7 @@
         "ranking": "4",
         "price": "10$",
         "discount": "20%",
-        "image": "/Images/4.jpeg",
+        "image": "./images/4.jpeg",
         "ID": "4"
     },
     {
@@ -46,7 +46,7 @@
         "ranking": "3",
         "price": "37$",
         "discount": "0%",
-        "image": "/Images/5.png",
+        "image": "./images/5.png",
         "ID": "5"
     },
     {
@@ -56,7 +56,7 @@
         "ranking": "2",
         "price": "18$",
         "discount": "0%",
-        "image": "/Images/6.jpeg",
+        "image": "./images/6.jpeg",
         "ID": "6"
     },
     {
@@ -66,7 +66,7 @@
         "ranking": "5",
         "price": "40$",
         "discount": "0%",
-        "image": "/Images/7.png",
+        "image": "./images/7.png",
         "ID": "7"
     },
     {
@@ -76,7 +76,7 @@
         "ranking": "5",
         "price": "19$",
         "discount": "0%",
-        "image": "/Images/8.png",
+        "image": "./images/8.png",
         "ID": "8"
     },
     {
@@ -86,7 +86,7 @@
         "ranking": "1",
         "price": "23$",
         "discount": "0%",
-        "image": "/Images/9.jpeg",
+        "image": "./images/9.jpeg",
         "ID": "9"
     }
     {
@@ -96,7 +96,7 @@
         "ranking": "2",
         "price": "23$",
         "discount": "0%",
-        "image": "/Images/10.jpeg",
+        "image": "./images/10.jpeg",
         "ID": "10"
     }
     {
@@ -106,7 +106,7 @@
         "ranking": "4",
         "price": "20$",
         "discount": "15%",
-        "image": "/Images/11.jpeg",
+        "image": "./images/11.jpeg",
         "ID": "11"
     }
     {
@@ -116,7 +116,7 @@
         "ranking": "5",
         "price": "16$",
         "discount": "25%",
-        "image": "/Images/12.jpeg",
+        "image": "./images/12.jpeg",
         "ID": "12"
     }
 ]
