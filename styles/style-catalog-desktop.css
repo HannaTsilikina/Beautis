@@ -1,1 +1,35 @@
-/* Здесь стили */
+/* тут стили для мэйна каталога  */
+
+main {
+  padding: 70px 0px 20px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.filters {
+  /* width: 20%; */
+  width: 260px;
+  height: 30px;
+  background-color: aqua;
+}
+
+.catalog {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img-card {
+  max-width: 246px;
+  max-height: 246px;
+}

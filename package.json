@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint:css": "stylelint \"src/**/*.css\"",
-    "server": "json-server --watch index.json"
+    "server": "json-server --watch db.json -p 3001"
   },
   "keywords": [],
   "author": "",
