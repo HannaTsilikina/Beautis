@@ -35,6 +35,30 @@ const volume = document.createElement('span')
 volume.classList.add('volume')
 volume.textContent = obj.size
 card.append(volume)
+const price = document.createElement('div')
+price.classList.add('allPrice')
+card.append(price)
+const oldPrice = document.createElement('span')
+oldPrice.classList.add('oldPrice')
+oldPrice.textContent = obj.price
+price.append(oldPrice)
+const newPrice = document.createElement('span')
+newPrice.classList.add('newPrice')
+let priceWithDiscount = parseInt(obj.price) - ((parseInt(obj.discount)/100) * parseInt(obj.price))
+newPrice.textContent = priceWithDiscount + '$'
+price.append(newPrice)
+if (parseInt(obj.discount) == 0) {
+  oldPrice.classList.add('hidden')
+}
+const buttonBuy = document.createElement('button')
+buttonBuy.classList.add('button-buy')
+buttonBuy.textContent = ' Купить '
+card.append(buttonBuy)
+const buttonBuyInOneClick = document.createElement('button')
+buttonBuyInOneClick.classList.add('button-buy-one')
+buttonBuyInOneClick.textContent = ' Купить в 1 клик'
+card.append(buttonBuyInOneClick)
+
 
 
       // const caption = document.createElement('h4');
