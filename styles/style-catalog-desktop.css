@@ -1,10 +1,13 @@
+/* stylelint-disable prettier/prettier */
 /* тут стили для мэйна каталога  */
 
 main {
-  padding: 70px 0px 20px 0px;
+  padding: 70px 0 20px;
+  /* stylelint-disable-next-line order/properties-order */
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* stylelint-disable-next-line order/properties-order */
   align-items: flex-start;
 
 }
@@ -18,17 +21,22 @@ main {
 
 .catalog {
   padding: 20px;
+  /* stylelint-disable-next-line order/properties-order */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  /* stylelint-disable-next-line order/properties-order */
   grid-template-rows: repeat(4, 1fr);
   gap: 20px;
 }
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* stylelint-disable-next-line order/properties-order */
   align-items: center;
 }
+
 .img-card {
   max-width: 246px;
   max-height: 246px;
