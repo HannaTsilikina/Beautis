@@ -1,11 +1,11 @@
 {
-  "name": "1",
+  "name": "beautis",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint:css": "stylelint \"src/**/*.css\"",
-    "server": "json-server --watch db.json -p 3001"
+    "lint:css:fix": "npx stylelint 'src/**/*.css' --cache --fix",
+        "server": "json-server --watch db.json -p 3001"
   },
   "keywords": [],
   "author": "",
