@@ -36,6 +36,7 @@ gap: 5px;
   justify-content: center;
   /* stylelint-disable-next-line order/properties-order */
   align-items: center;
+  max-width: 264px;
 
 }
 h5 {
@@ -120,13 +121,13 @@ text-transform: uppercase;
   border-radius: 8px;
 background: #FFF;
 box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.20);
-padding: 27px 10px;
+padding: 10px 10px;
+max-width: 264px;
 }
 .button-buy {
   margin-top: 25px;
   display: flex;
-width: 184px;
-padding: 10px 16px 12px 16px;
+padding: 10px 25%;
 justify-content: center;
 align-items: center;
 border: none;
@@ -142,6 +143,7 @@ font-weight: 700;
 line-height: 18px; /* 150% */
 letter-spacing: 0.48px;
 text-transform: uppercase;
+max-width: 184px;
 }
 .button-buy-one {
   padding-top: 12px;
@@ -155,10 +157,19 @@ font-style: normal;
 font-weight: 700;
 line-height: 20px; /* 166.667% */
 }
-.button-buy-one:active {
+.button-buy-one:hover {
   text-decoration: underline;
 }
-.button-buy:active {
+
+.button-buy:hover {
   color:  #306049;
 background-color:  #FFF;
+border: 1px solid  #306049;
+
+}
+.transition {
+  transition: 2s;
+}
+.transition2 {
+  transition: 0.5s linear;
 }

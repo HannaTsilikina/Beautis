@@ -11,10 +11,12 @@ fetch('http://localhost:3001/products', {
     .catch((err) => console.log(err.message))
 
 let mainDiv = document.querySelector('.catalog')
+
 function newPost(obj) {
     const card = document.createElement('div')
     card.classList.add('card')
     mainDiv.append(card)
+
     const img = document.createElement('img')
     img.getAttribute('src')
     img.src = obj.image
@@ -65,17 +67,22 @@ function newPost(obj) {
     buttonBuy.classList.add('hidden')
     buttonBuy.textContent = ' Купить '
     card.append(buttonBuy)
+    buttonBuy.onmouseover = function transit() {
+        buttonBuy.classList.add('transition')
+    }
 
     const buttonBuyInOneClick = document.createElement('button')
     buttonBuyInOneClick.classList.add('button-buy-one')
     buttonBuyInOneClick.classList.add('hidden')
     buttonBuyInOneClick.textContent = ' Купить в 1 клик'
+
     card.append(buttonBuyInOneClick)
     card.onmouseover = function () {
         buttonBuy.classList.remove('hidden')
         buttonBuyInOneClick.classList.remove('hidden')
         card.classList.add('emphasized-card')
         buttonBuy.classList.add('button-buy')
+        card.classList.add('transition2')
     }
     card.onmouseout = function () {
         buttonBuy.classList.add('hidden')
