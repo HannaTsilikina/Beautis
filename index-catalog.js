@@ -82,7 +82,6 @@ function newPost(obj) {
         buttonBuyInOneClick.classList.remove('hidden')
         card.classList.add('emphasized-card')
         buttonBuy.classList.add('button-buy')
-        card.classList.add('transition2')
     }
     card.onmouseout = function () {
         buttonBuy.classList.add('hidden')
