@@ -37,13 +37,13 @@ function newPost(obj) {
     volume.textContent = obj.size
     card.append(volume)
     const price = document.createElement('div')
-    price.classList.add('allPrice')
+    price.classList.add('all-price')
     card.append(price)
     const oldPriceContainer = document.createElement('div')
-    oldPriceContainer.classList.add('oldPriceContainer')
+    oldPriceContainer.classList.add('old-price-container')
     price.append(oldPriceContainer)
     const oldPrice = document.createElement('span')
-    oldPrice.classList.add('oldPrice')
+    oldPrice.classList.add('old-price')
     oldPrice.textContent = obj.price
     oldPriceContainer.append(oldPrice)
     const crossLines = document.createElement('img')
@@ -53,7 +53,7 @@ function newPost(obj) {
     oldPriceContainer.append(crossLines)
 
     const newPrice = document.createElement('span')
-    newPrice.classList.add('newPrice')
+    newPrice.classList.add('new-price')
     let priceWithDiscount =
         parseInt(obj.price) -
         (parseInt(obj.discount) / 100) * parseInt(obj.price)

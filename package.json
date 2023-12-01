@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "lint:css:fix": "npx stylelint 'src/**/*.css' --cache --fix",
+        "lint:css:fix": "npx stylelint src/**/*.css --cache --fix",
         "server": "json-server --watch db.json -p 3001"
     },
     "keywords": [],
