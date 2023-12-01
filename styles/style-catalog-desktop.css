@@ -29,6 +29,19 @@ main {
   gap: 2%;
   transition-delay: 2s;
 }
+@media (max-width: 1100px ){
+
+  .catalog {
+    padding: 20px;
+    /* stylelint-disable-next-line order/properties-order */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* stylelint-disable-next-line order/properties-order */
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2%;
+    transition-delay: 2s;
+  }
+}
 
 .card {
   display: flex;
@@ -110,8 +123,10 @@ h4 {
 }
 
 .img-card {
+  height: 50%;
   max-width: 246px;
   max-height: 246px;
+
 }
 
 .oldPriceContainer {
@@ -141,19 +156,19 @@ h4 {
 }
 
 .button-buy {
-  margin-top: 25px;
   display: flex;
-  padding: 10px 25%;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  padding: 10px 25%;
   border: none;
   gap: 10px;
-  border-radius: 4px;
-  background:  #306049;
-  color:  #FFF;
   text-align: center;
   font-family: Manrope;
   font-size: 12px;
+  color:  #FFF;
+  background:  #306049;
+  border-radius: 4px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px; /* 150% */
@@ -185,6 +200,7 @@ h4 {
   border: 1px solid  #306049;
 
 }
+
 .transition {
   transition: 2s;
 }
