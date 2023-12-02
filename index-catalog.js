@@ -11,12 +11,14 @@ try {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((element) => newPost(element))
-            document.addEventListener('click', function (evt) {
-                let targetbutton = evt.target
-                let card = targetbutton.closest('.card')
-                card.classList.add('active')
-                addToSessionStorage(card)
-            })
+            document
+                .querySelector('.catalog')
+                .addEventListener('click', function (evt) {
+                    let targetbutton = evt.target
+                    let card = targetbutton.closest('.card')
+                    card.classList.add('active')
+                    addToSessionStorage(card)
+                })
         })
         .catch((err) => console.log(err.message))
 } catch (err) {
