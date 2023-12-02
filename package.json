@@ -1,29 +1,29 @@
 {
-  "name": "beautis",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "lint:css:fix": "npx stylelint 'src/**/*.css' --cache --fix",
+    "name": "beautis",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "lint:css:fix": "npx stylelint \"styles/**/*.css\" --cache --fix",
         "server": "json-server --watch db.json -p 3001"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "dependencies": {
-    "@babel/eslint-parser": "^7.23.3",
-    "eslint": "^8.54.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-import": "^2.29.0",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-order": "^6.0.3",
-    "stylelint-prettier": "^4.1.0"
-  },
-  "devDependencies": {
-    "json-server": "^0.17.4",
-    "stylelint": "^15.11.0",
-    "stylelint-config-standard": "^34.0.0"
-  }
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "dependencies": {
+        "@babel/eslint-parser": "^7.23.3",
+        "eslint": "^8.54.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-import": "^2.29.0",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-order": "^6.0.3",
+        "stylelint-prettier": "^4.1.0"
+    },
+    "devDependencies": {
+        "json-server": "^0.17.4",
+        "stylelint": "^15.11.0",
+        "stylelint-config-standard": "^34.0.0"
+    }
 }
