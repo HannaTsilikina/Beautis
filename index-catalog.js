@@ -17,12 +17,19 @@ try {
                     let targetbutton = evt.target
                     let card = targetbutton.closest('.card')
                     card.classList.add('active')
-                    addToSessionStorage(card)
+                    data.forEach((element) => {
+                        if (card.id == element.ID) {
+                            sessionStorage.setItem(
+                                `${element.ID}`,
+                                JSON.stringify(element)
+                            )
+                        }
+                    })
                 })
         })
         .catch((err) => console.log(err.message))
 } catch (err) {
-    console.log(err.meaasge)
+    console.log(err.message)
 }
 
 let mainDiv = document.querySelector('.catalog')
@@ -30,8 +37,8 @@ let mainDiv = document.querySelector('.catalog')
 function newPost(obj) {
     const card = document.createElement('div')
     card.classList.add('card')
+    card.setAttribute('id', `${obj.ID}`)
     mainDiv.append(card)
-
     const img = document.createElement('img')
     img.getAttribute('src')
     img.src = obj.image
@@ -122,10 +129,4 @@ function drawRate(count, divToDraw) {
             divToDraw.append(star)
         }
     }
-}
-
-function addToSessionStorage(card) {
-    let name = card.querySelector('h4').textContent
-    let price = card.querySelector('.new-price').textContent
-    window.sessionStorage.setItem(`${name}`, `${price}`)
 }
