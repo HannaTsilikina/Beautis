@@ -1,14 +1,27 @@
 // Создание каталога
 
-fetch('http://localhost:3001/products', {
-    method: 'GET',
-    headers: {
-        'Content-type': 'application/json, charset=UTF-8',
-    },
-})
-    .then((res) => res.json())
-    .then((data) => data.forEach((element) => newPost(element)))
-    .catch((err) => console.log(err.message))
+// const { response } = require('express')
+try {
+    fetch('http://localhost:3001/products', {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json, charset=UTF-8',
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((element) => newPost(element))
+            document.addEventListener('click', function (evt) {
+                let targetbutton = evt.target
+                let card = targetbutton.closest('.card')
+                card.classList.add('active')
+                addToSessionStorage(card)
+            })
+        })
+        .catch((err) => console.log(err.message))
+} catch (err) {
+    console.log(err.meaasge)
+}
 
 let mainDiv = document.querySelector('.catalog')
 
@@ -107,4 +120,10 @@ function drawRate(count, divToDraw) {
             divToDraw.append(star)
         }
     }
+}
+
+function addToSessionStorage(card) {
+    let name = card.querySelector('h4').textContent
+    let price = card.querySelector('.new-price').textContent
+    window.sessionStorage.setItem(`${name}`, `${price}`)
 }
