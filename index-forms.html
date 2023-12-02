@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Beautis</title>
+        <link rel="icon" href="./images/logo.png" type="img/png" />
+        <link rel="stylesheet" href="./styles/normalize.css" />
+        <link rel="stylesheet" href="./styles/style-forms-mob.css" />
+        <link rel="stylesheet" href="./styles/style-forms-desktop.css" />
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <article>
+                <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+            <section>
+                <form name="name">
+                    <h4>Имя</h4>
+                    <input type="text" placeholder="Василиса" name="name">
+                </form> 
+                <form name="surname">
+                    <h4>Фамилия</h4>
+                    <input type="text" placeholder="Прекрасная" name="surname">
+                </form>
+                <form name="email">
+                    <h4>Email</h4>
+                    <input type="email" placeholder="heybeauty@gmail.com" name="email">
+                </form>
+            </section>
+            
+            <section>
+                <h3>ДОСТАВКА</h3>
+                <h4>Куда доставить</h4>
+                <form name="delivery">
+                    <select name="deliverySelect">
+                        <option>До двери</option>
+                        <option>Самовывоз</option>
+                    </select>
+                </form>
+                <form name="city">
+                    <h4>Город</h4>
+                    <select id="cities"> 
+                    </select>
+                </form>
+                <form name="street">
+                    <h4>Улица, дом, квартира</h4>
+                    <input type="text"> 
+                    </input>
+                </form>
+            </section>
+
+            <section>
+                <h3>ОПЛАТА</h3>
+                <select> 
+                    <option>Наличными при получении</option>
+                    <option>Картой при получении</option>
+                </select>
+            </section>
+            </article>
+            
+            <article>
+                <div>
+                    <h3>ИТОГО</h3>
+                    <p id="finalPrice"></p>
+                </div>
+                <div> 
+                    <button>Отменить</button>
+                    <button>Завершить оформление</button>
+                </div>
+            </article>
+
+        </main>
+        <footer></footer>
+        <script src="./index-forms.js"></script>
+    </body>
+</html>
