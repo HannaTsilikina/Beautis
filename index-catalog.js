@@ -12,9 +12,8 @@ try {
         .then((data) => {
             data.forEach((element) => newPost(element))
             let arrayOfProducts = []
-            let catalog = document.querySelector('.catalog')
             document
-                .querySelectorAll('.button-buy')
+                .querySelector('.catalog')
                 .addEventListener('click', function (evt) {
                     let targetbutton = evt.target
                     let card = targetbutton.closest('.card')
@@ -28,36 +27,23 @@ try {
                         arrayOfProducts.forEach((element) => {
                             fetch('http://localhost:3001/chosenProducts', {
                                 method: 'POST',
-                                body: {
-                                    brand: `${element.brand}`,
-                                    name: `${element.name}`,
-                                    size: `${element.size}`,
-                                    ranking: `${element.ranking}`,
-                                    price: `${element.price}`,
-                                    discount: `${element.discount}`,
-                                    image: `${element.image}`,
-                                    id: `${element.id}`,
-                                },
+                                body: JSON.stringify({
+                                    id: element.id,
+                                    brand: element.brand,
+                                    name: element.name,
+                                    size: element.size,
+                                    ranking: element.ranking,
+                                    price: element.price,
+                                    discount: element.discount,
+                                    image: element.image,
+                                }),
                                 headers: {
-                                    'Content-type':
-                                        'application/json, charset=UTF-8',
+                                    'Content-type': 'application/json',
                                 },
                             }).then((response) => {
-                                return response
+                                console.log(response)
                             })
                         })
-
-                        fetch('http://localhost:3001/chosenProducts', {
-                            method: 'GET',
-                            headers: {
-                                'Content-type':
-                                    'application/json, charset=UTF-8',
-                            },
-                        })
-                            .then((res) => res.json())
-                            .then((data) => {
-                                console.log(data)
-                            })
                     } catch (err) {
                         console.log(err.status)
                     }
