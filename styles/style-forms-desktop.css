@@ -1,9 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Lato:wght@400;700;900&family=Manrope:wght@400;700&display=swap');
 
 main {
-font-family: 'Manrope';
+    margin-top: 150px;
+    margin-bottom: 250px;
+    background-color: #306049;
+}
+
+.main-div {
+display: flex;
+flex-direction: column;
+margin: 100px;
 color: #FFFFFF;
 background-color: #306049;
+font-weight: 700;
+    font-size: 12px;
+    font-family: Manrope, sans-serif;
+    line-height: 18px;
+    letter-spacing: 0.48px;
+}
+
+select {
+    width: 100%;
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    background-color: #306049;
+    color:#FFFFFF;
+    border: none;
+border-bottom: 1px solid #FFFFFF;
+background-image: url('/images/Arrow\ down.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.55em);
+  background-size: 2em auto;
+  }
+
+
+.white {
+display: flex;
+flex-direction: column;
+color:#306049;
+background-color: #FFFFFF;
+}
+
+.buttons {
+    display: flex;
+    flex-direction:row;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.btn-1, .btn-2 {
+width: 100%;
+color:#306049;
+border-radius: 4px;
+border-color: #306049;
+background-color: #FFFFFF;
+font-size: 20px;
+font-style: normal;
+line-height: 20px;
+margin-right: 15px;
+margin-left: 15px;
+height: 2.5em;
+}
+
+.form {
+width: 100%;
+border: none;
+border-bottom: 1px solid #FFFFFF;
+color:#FFFFFF;
+background-color: #306049;
+font-size: 20px;
+font-style: normal;
+line-height: 20px;
 }
 
 h2 {
@@ -13,9 +88,38 @@ font-weight: 700;
 line-height: 36px;
 }
 
+.finalPrice {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 34px;
+    margin-top: 50px;
+}
+
 h4 {
-    font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
 }
+
+.hide {
+    display: none
+}
+
+input::placeholder {
+    font-size: 18px;
+}
+input:valid {
+    border-color:greenyellow;
+}
+
+article {
+    margin-bottom: 30px;
+}
+
