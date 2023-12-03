@@ -11,17 +11,21 @@ try {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((element) => newPost(element))
+            let array = []
             document
                 .querySelector('.catalog')
                 .addEventListener('click', function (evt) {
                     let targetbutton = evt.target
                     let card = targetbutton.closest('.card')
                     card.classList.add('active')
+
                     data.forEach((element) => {
                         if (card.id == element.ID) {
+                            array.push(JSON.stringify(element))
+                            console.log(array)
                             localStorage.setItem(
-                                `${element.ID}`,
-                                JSON.stringify(element)
+                                'basket',
+                                JSON.stringify(array)
                             )
                         }
                     })
