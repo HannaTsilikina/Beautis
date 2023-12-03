@@ -8,7 +8,7 @@
       "price": "50$",
       "discount": "40%",
       "image": "./images/1.jpeg",
-      "ID": "1"
+      "id": "1"
     },
     {
       "brand": "Davines",
@@ -18,7 +18,7 @@
       "price": "25$",
       "discount": "0%",
       "image": "./images/2.jpeg",
-      "ID": "2"
+      "id": "2"
     },
     {
       "brand": "Davines",
@@ -28,7 +28,7 @@
       "price": "40$",
       "discount": "0%",
       "image": "./images/3.jpeg",
-      "ID": "3"
+      "id": "3"
     },
     {
       "brand": "Davines",
@@ -38,7 +38,7 @@
       "price": "10$",
       "discount": "20%",
       "image": "./images/4.jpeg",
-      "ID": "4"
+      "id": "4"
     },
     {
       "brand": "TIGI",
@@ -48,7 +48,7 @@
       "price": "37$",
       "discount": "0%",
       "image": "./images/5.png",
-      "ID": "5"
+      "id": "5"
     },
     {
       "brand": "TIGI",
@@ -58,7 +58,7 @@
       "price": "18$",
       "discount": "0%",
       "image": "./images/6.jpeg",
-      "ID": "6"
+      "id": "6"
     },
     {
       "brand": "TIGI",
@@ -68,7 +68,7 @@
       "price": "40$",
       "discount": "0%",
       "image": "./images/7.png",
-      "ID": "7"
+      "id": "7"
     },
     {
       "brand": "TIGI",
@@ -78,7 +78,7 @@
       "price": "19$",
       "discount": "0%",
       "image": "./images/8.png",
-      "ID": "8"
+      "id": "8"
     },
     {
       "brand": "Morgan's",
@@ -88,7 +88,7 @@
       "price": "23$",
       "discount": "0%",
       "image": "./images/9.jpeg",
-      "ID": "9"
+      "id": "9"
     },
     {
       "brand": "Morgan's",
@@ -98,7 +98,7 @@
       "price": "23$",
       "discount": "0%",
       "image": "./images/10.jpeg",
-      "ID": "10"
+      "id": "10"
     },
     {
       "brand": "Morgan's",
@@ -108,7 +108,7 @@
       "price": "20$",
       "discount": "15%",
       "image": "./images/11.jpeg",
-      "ID": "11"
+      "id": "11"
     },
     {
       "brand": "Morgan's",
@@ -118,7 +118,120 @@
       "price": "16$",
       "discount": "25%",
       "image": "./images/12.jpeg",
-      "ID": "12"
+      "id": "12"
+    }
+  ],
+  "chosenProducts": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": 32
+    },
+    {
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": 35
+    },
+    {
+      "id": 36
+    },
+    {
+      "id": 37
     }
   ]
 }

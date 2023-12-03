@@ -11,29 +11,60 @@ try {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((element) => newPost(element))
-            let array = []
+            let arrayOfProducts = []
+            let catalog = document.querySelector('.catalog')
             document
-                .querySelector('.catalog')
+                .querySelectorAll('.button-buy')
                 .addEventListener('click', function (evt) {
                     let targetbutton = evt.target
                     let card = targetbutton.closest('.card')
                     card.classList.add('active')
-
                     data.forEach((element) => {
-                        if (card.id == element.ID) {
-                            array.push(JSON.stringify(element))
-                            console.log(array)
-                            localStorage.setItem(
-                                'basket',
-                                JSON.stringify(array)
-                            )
+                        if (card.id == element.id) {
+                            arrayOfProducts.push(element)
                         }
                     })
+                    try {
+                        arrayOfProducts.forEach((element) => {
+                            fetch('http://localhost:3001/chosenProducts', {
+                                method: 'POST',
+                                body: {
+                                    brand: `${element.brand}`,
+                                    name: `${element.name}`,
+                                    size: `${element.size}`,
+                                    ranking: `${element.ranking}`,
+                                    price: `${element.price}`,
+                                    discount: `${element.discount}`,
+                                    image: `${element.image}`,
+                                    id: `${element.id}`,
+                                },
+                                headers: {
+                                    'Content-type':
+                                        'application/json, charset=UTF-8',
+                                },
+                            }).then((response) => {
+                                return response
+                            })
+                        })
+
+                        fetch('http://localhost:3001/chosenProducts', {
+                            method: 'GET',
+                            headers: {
+                                'Content-type':
+                                    'application/json, charset=UTF-8',
+                            },
+                        })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                console.log(data)
+                            })
+                    } catch (err) {
+                        console.log(err.status)
+                    }
                 })
         })
-        .catch((err) => console.log(err.message))
-} catch (err) {
-    console.log(err.message)
+} catch (error) {
+    console.log(error.message)
 }
 
 let mainDiv = document.querySelector('.catalog')
@@ -41,7 +72,7 @@ let mainDiv = document.querySelector('.catalog')
 function newPost(obj) {
     const card = document.createElement('div')
     card.classList.add('card')
-    card.setAttribute('id', `${obj.ID}`)
+    card.setAttribute('id', `${obj.id}`)
     mainDiv.append(card)
     const img = document.createElement('img')
     img.getAttribute('src')
@@ -56,7 +87,7 @@ function newPost(obj) {
     drawRate(obj.ranking, rate)
     card.append(rate)
     const title = document.createElement('h4')
-    title.textContent = obj.name.toUpperCase()
+    title.textContent = obj.name
     card.append(title)
     const volume = document.createElement('span')
     volume.classList.add('volume')
