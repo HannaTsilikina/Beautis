@@ -19,7 +19,7 @@ try {
                     card.classList.add('active')
                     data.forEach((element) => {
                         if (card.id == element.ID) {
-                            sessionStorage.setItem(
+                            localStorage.setItem(
                                 `${element.ID}`,
                                 JSON.stringify(element)
                             )
