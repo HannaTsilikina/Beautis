@@ -20,33 +20,30 @@ try {
                     card.classList.add('active')
                     data.forEach((element) => {
                         if (card.id == element.id) {
-                            arrayOfProducts.push(element)
+                            try {
+                                fetch('http://localhost:3001/chosenProducts', {
+                                    method: 'POST',
+                                    body: JSON.stringify({
+                                        id: element.id,
+                                        brand: element.brand,
+                                        name: element.name,
+                                        size: element.size,
+                                        ranking: element.ranking,
+                                        price: element.price,
+                                        discount: element.discount,
+                                        image: element.image,
+                                    }),
+                                    headers: {
+                                        'Content-type': 'application/json',
+                                    },
+                                }).then((response) => {
+                                    console.log(response)
+                                })
+                            } catch (err) {
+                                console.log(err.status)
+                            }
                         }
                     })
-                    try {
-                        arrayOfProducts.forEach((element) => {
-                            fetch('http://localhost:3001/chosenProducts', {
-                                method: 'POST',
-                                body: JSON.stringify({
-                                    id: element.id,
-                                    brand: element.brand,
-                                    name: element.name,
-                                    size: element.size,
-                                    ranking: element.ranking,
-                                    price: element.price,
-                                    discount: element.discount,
-                                    image: element.image,
-                                }),
-                                headers: {
-                                    'Content-type': 'application/json',
-                                },
-                            }).then((response) => {
-                                console.log(response)
-                            })
-                        })
-                    } catch (err) {
-                        console.log(err.status)
-                    }
                 })
         })
 } catch (error) {
