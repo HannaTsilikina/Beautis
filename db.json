@@ -121,5 +121,6 @@
             "id": "12"
         }
     ],
-    "chosenProducts": []
+    "chosenProducts": [],
+    "orders": []
 }
