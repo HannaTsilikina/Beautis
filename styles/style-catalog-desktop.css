@@ -2,6 +2,7 @@
 /* stylelint-disable prettier/prettier */
 @media (width >= 800px) {
   body {
+    margin: 10px;
     font-weight: 700;
     font-size: 12px;
     font-family: Manrope, sans-serif;
@@ -76,9 +77,7 @@
   }
 
   /* тут стили для мэйна каталога  */
-  body {
-    margin: 10px;
-  }
+
 
   main {
     display: flex;
@@ -99,7 +98,6 @@
     color: #000;
     font-weight: 600;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 20px;
   }
@@ -114,7 +112,6 @@
     color: #000;
     font-weight: 600;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     background-color: #FFF;
     border: 0;
@@ -212,7 +209,7 @@
 
   .catalog {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 30%);
     grid-template-columns: repeat(4, 1fr);
     gap: 2%;
     padding: 20px;
@@ -229,7 +226,7 @@
   @media (width <=1200px) {
     .catalog {
       display: grid;
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 20%);
       grid-template-columns: repeat(3, 1fr);
       gap: 2%;
       padding: 20px;
@@ -270,7 +267,6 @@
     color: #000;
     font-weight: 400;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 20px;
 
@@ -283,7 +279,6 @@
     color: #000;
     font-weight: 700;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 18px;
 
@@ -298,7 +293,6 @@
     color: #000;
     font-weight: 400;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 20px;
 
@@ -320,7 +314,6 @@
     color: white;
     font-weight: 700;
     font-size: 28px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 28px;
 
@@ -335,7 +328,6 @@
     color: #306049;
     font-weight: 700;
     font-size: 28px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 28px;
 
@@ -388,7 +380,6 @@
     color: #FFF;
     font-weight: 700;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 18px;
 
@@ -402,114 +393,99 @@
 
   }
 
-  /* .button-buy-one {
-  padding-top: 12px;
-  color: #306049;
-  font-weight: 700;
-  font-size: 12px;
-  font-family: Manrope;
-  font-style: normal;
-  line-height: 20px;
-  text-align: center;
-  background: none;
-  border: none;
-} */
 
-  /* .button-buy-one:hover {
-  text-decoration: underline;
-} */
+  .button-buy:hover {
+    color: #306049;
+    background-color: #FFF;
+    border: 1px solid #306049;
 
-.button-buy:hover {
-  color: #306049;
-  background-color: #FFF;
-  border: 1px solid #306049;
+  }
 
-}
+  .transition {
+    transition: 2s;
+  }
 
-.transition {
-  transition: 2s;
-}
+  /* footer  */
+  footer {
+    /* height: 40%; */
+    color: #FFF;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: rgb(48 96 73 / 100%);
+  }
 
-/* footer  */
-footer {
-  height: 505px;
-  color: #FFF;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: rgb(48 96 73 / 100%);
-}
+  .footer_blocks{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 176px;
+    padding: 80px 0;
+  }
 
-.footer_blocks{
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  gap:20px;
-  align-items: flex-start;
-  justify-content: space-between;
-  height: 176px;
-  padding: 80px 0;
-}
+  .blocks{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 
-.blocks{
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(2, 1fr);
-  gap:20px;
-  align-items: flex-start;
-  justify-content: space-between;
-}
+  .footer_block-info, .footer_block-company, .footer_block-contact, .footer_icons{
+    display: flex;
+    flex-direction: column;
+    height: 173px;
+  }
 
-.footer_block-info, .footer_block-company, .footer_block-contact, .footer_icons{
-  display: flex;
-  flex-direction: column;
-  height: 173px;
-}
+  .footer_block-info>h3, .footer_block-company>h3{
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
 
-.footer_block-info>h3, .footer_block-company>h3{
-  font-size: 14px;
-  line-height: 20px;
-  text-transform: uppercase;
-}
+  .footer_block-info>h3::after, .footer_block-company>h3::after{
+    display: inline-block;
+    width: 214px;
+    border: 1px solid white;
+    content: '';
+  }
 
-.footer_block-info>h3::after, .footer_block-company>h3::after{
-  display: inline-block;
-  width: 214px;
-  border: 1px solid white;
-  content: '';
-}
+  .footer_cards{
+    display: flex;
+    gap: 10px;
+    padding:24px 0 0;
+    opacity: 0.5;
+  }
 
-.footer_cards{
-  display: flex;
-  gap: 10px;
-  padding:24px 0 0;
-  opacity: 0.5;
-}
+  .footer_block-contact{
+    grid-column: 2/3;
+  }
 
-.footer_block-contact{
-  grid-column: 2/3;
-}
+  .footer_icons{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -1.44px;
+    text-transform: uppercase;
+  }
 
-.footer_icons{
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 48px;
-  letter-spacing: -1.44px;
-  text-transform: uppercase;
-}
+  .footer_icons-faceb,.footer_icons-inst{
+    display: flex;
+    gap: 10px;
+    align-items: center
+  }
 
-.footer_icons-faceb,.footer_icons-inst{
-  display: flex;
-  gap: 10px;
-  align-items: center
-}
+  .footer_icons-faceb>img,.footer_icons-inst>img{
+    width: 36px;
+    height: 36px;
+  }
 
-.footer_icons-faceb>img,.footer_icons-inst>img{
-  width: 36px;
-  height: 36px;
-}
-
-.solid, .footer_{
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
+  .solid, .footer_{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
