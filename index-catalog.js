@@ -1,56 +1,56 @@
 // Создание каталога
 
 // const { response } = require('express')
-try {
-    fetch('http://localhost:3001/products', {
-        method: 'GET',
-        headers: {
-            'Content-type': 'application/json, charset=UTF-8',
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => {
-            data.forEach((element) => newPost(element))
-            let arrayOfProducts = []
-            document
-                .querySelector('.catalog')
-                .addEventListener('click', function (evt) {
-                    let targetbutton = evt.target
-                    let card = targetbutton.closest('.card')
-                    card.classList.add('active')
-                    data.forEach((element) => {
-                        if (card.id == element.id) {
-                            try {
-                                fetch('http://localhost:3001/chosenProducts', {
-                                    method: 'POST',
-                                    body: JSON.stringify({
-                                        id: element.id,
-                                        brand: element.brand,
-                                        name: element.name,
-                                        size: element.size,
-                                        ranking: element.ranking,
-                                        price: element.price,
-                                        discount: element.discount,
-                                        image: element.image,
-                                    }),
-                                    headers: {
-                                        'Content-type': 'application/json',
-                                    },
-                                }).then((response) => {
-                                    console.log(response)
-                                })
-                            } catch (err) {
-                                console.log(err.status)
-                            }
-                        }
-                    })
-                })
-        })
-} catch (error) {
-    console.log(error.message)
-}
-
 let mainDiv = document.querySelector('.catalog')
+
+fetch('http://localhost:3001/products', {
+    method: 'GET',
+    headers: {
+        'Content-type': 'application/json, charset=UTF-8',
+    },
+})
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((element) => newPost(element))
+        document.querySelectorAll('.button-to-card').forEach((elem) => {
+            elem.onclick = function (evt) {
+                let targetbutton = evt.target
+                let card = targetbutton.closest('.card')
+                card.classList.add('active')
+                data.forEach((element) => {
+                    if (card.id == element.id) {
+                        fetch('http://localhost:3001/chosenProducts', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                id: element.id,
+                                brand: element.brand,
+                                name: element.name,
+                                size: element.size,
+                                ranking: element.ranking,
+                                price: element.price,
+                                discount: element.discount,
+                                image: element.image,
+                            }),
+                            headers: {
+                                'Content-type': 'application/json',
+                            },
+                        })
+                            .then((response) => {
+                                console.log(response)
+                            })
+                            .catch((err) => console.log(err.message))
+                    }
+                })
+            }
+        })
+    })
+    .catch((errorToFetch) => {
+        document.querySelector('.filters').classList.add('hidden')
+        mainDiv.textContent =
+            'Ошибка: ' +
+            errorToFetch.name +
+            ' Произодится работа на сервере. Просим прощения за причиненные неудобства!'
+    })
 
 function newPost(obj) {
     const card = document.createElement('div')
