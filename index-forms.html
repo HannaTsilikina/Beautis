@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Beautis</title>
+        <link rel="icon" href="./images/logo.png" type="img/png" />
+        <link rel="stylesheet" href="./styles/normalize.css" />
+        <link rel="stylesheet" href="./styles/style-forms-mob.css" />
+        <link rel="stylesheet" href="./styles/style-forms-desktop.css" />
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <div class="main-div">
+                <article>
+                    <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+                <section>
+                    <form class="formName" method="post">
+                        <h4>Имя</h4>
+                        <input type="text" placeholder="Василиса" class="name form" required>
+                    </form> 
+                    <form class="formSurname" method="post">
+                        <h4>Фамилия</h4>
+                        <input type="text" placeholder="Прекрасная" class="surname form" required>
+                    </form>
+                    <form name="formEmail" method="post">
+                        <h4>Email</h4>
+                        <input type="email" placeholder="heybeauty@gmail.com" class="email form" required>
+                    </form>
+                </section>
+                
+                <section>
+                    <h3>ДОСТАВКА</h3>
+                   
+                    <form name="delivery" method="post">
+                        <select class="deliverySelect" onchange = 'openHide()'>
+                            <option value="getToDoor">До двери</option>
+                            <option value="getByMyself">Самовывоз</option>
+                        </select>
+                    </form>
+                    <form class="city" method="post">
+                        <h4>Город</h4>
+                        <select id="cities"> 
+                        </select>
+                    </form>
+                    <form class="formStreet" method="post">
+                        <h4>Улица, дом, квартира</h4>
+                        <input type="text" class="street form" placeholder='Главный проспект, 12, 333' required> 
+                        </input>
+                    </form>
+                </section>
+    
+                <section>
+                    <h3>ОПЛАТА</h3>
+                    <form method="post">
+                        <select> 
+                        <option value="cash">Наличными при получении</option>
+                        <option value="card">Картой при получении</option>
+                    </select>
+                </form>
+                </section>
+                </article>
+                
+                <article class="white">
+                    <div>
+                        <h2 class="finalPrice">ИТОГО</h2>
+                        <p id="finalPrice"></p>
+                    </div>
+                    <div class="buttons"> 
+                        <button class="backToCart btn-1">Отменить</button>
+                        <button type="submit" class="form btn-2">Завершить оформление</button>
+                    </div>
+                </article>
+            </div>
+            
+        </main>
+        <footer></footer>
+        <script src="./index-forms.js">
+        </body>
+            </html>
+
