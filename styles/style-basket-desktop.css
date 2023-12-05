@@ -118,11 +118,15 @@ a{
     color: #306049;
 }
 .close {
-    color: #000000;
-    opacity: 0.35;
+    color: #000;
     font-size: 35px;
-    font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
+    opacity: 0.35;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-color: white;
+    border-width: 0;
 }
 .basket_line__gray {
     opacity: 0.15;
