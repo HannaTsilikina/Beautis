@@ -148,3 +148,4 @@ function drawRate(count, divToDraw) {
         }
     }
 }
+
