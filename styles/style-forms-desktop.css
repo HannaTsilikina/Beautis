@@ -7,12 +7,12 @@ main {
 }
 
 .main-div {
-display: flex;
-flex-direction: column;
-margin: 100px;
-color: #FFFFFF;
-background-color: #306049;
-font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    margin: 100px;
+    color: #ffffff;
+    background-color: #306049;
+    font-weight: 700;
     font-size: 12px;
     font-family: Manrope, sans-serif;
     line-height: 18px;
@@ -32,60 +32,60 @@ select {
     font-weight: 400;
     line-height: 16px;
     background-color: #306049;
-    color:#FFFFFF;
+    color: #ffffff;
     border: none;
-border-bottom: 1px solid #FFFFFF;
-background-image: url('/images/Arrow\ down.svg');
-  background-repeat: no-repeat;
-  background-position: calc(100% - 0.55em);
-  background-size: 2em auto;
-  }
-
+    border-bottom: 1px solid #ffffff;
+    background-image: url('/images/Arrow\ down.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.55em);
+    background-size: 2em auto;
+}
 
 .white {
-display: flex;
-flex-direction: column;
-color:#306049;
-background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    color: #306049;
+    background-color: #ffffff;
 }
 
 .buttons {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     margin-bottom: 20px;
     padding: 15px;
 }
 
-.btn-1, .btn-2 {
-width: 100%;
-color:#306049;
-border-radius: 4px;
-border-color: #306049;
-background-color: #FFFFFF;
-font-size: 20px;
-font-style: normal;
-line-height: 20px;
-margin-right: 15px;
-margin-left: 15px;
-height: 2.5em;
+.btn-1,
+.btn-2 {
+    width: 100%;
+    color: #306049;
+    border-radius: 4px;
+    border-color: #306049;
+    background-color: #ffffff;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 2.5em;
 }
 
 .form {
-width: 100%;
-border: none;
-border-bottom: 1px solid #FFFFFF;
-color:#FFFFFF;
-background-color: #306049;
-font-size: 20px;
-font-style: normal;
-line-height: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    background-color: #306049;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 20px;
 }
 
 h2 {
-font-size: 36px;
-font-style: normal;
-font-weight: 700;
-line-height: 36px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
 }
 
 .finalPrice {
@@ -109,17 +109,16 @@ h4 {
 }
 
 .hide {
-    display: none
+    display: none;
 }
 
 input::placeholder {
     font-size: 18px;
 }
 input:valid {
-    border-color:greenyellow;
+    border-color: greenyellow;
 }
 
 article {
     margin-bottom: 30px;
 }
-
