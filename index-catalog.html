@@ -1,136 +1,114 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Beautis</title>
-        <link rel="icon" href="./images/logo.png" type="img/png" />
-        <link rel="stylesheet" href="./styles/normalize.css" />
-        <link rel="stylesheet" href="./styles/style-catalog-desktop.css" />
-        <link rel="stylesheet" href="./styles/style-catalog-mob.css" />
-    </head>
 
-    <body>
-        <header>
-            <div class="header_logo container">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beautis</title>
+    <link rel="icon" href="./images/logo.png" type="img/png" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/style-catalog-desktop.css" />
+    <link rel="stylesheet" href="./styles/style-catalog-mob.css" />
+</head>
 
-                <a href="./index-catalog.html"
+<body>
+    <header>
+        <div class="header_logo container">
 
-                    ><img src="./Images/Beautis-Logo.png" alt="Beautis-Logo"
-                /></a>
+            <a href="./index-catalog.html"><img src="./Images/Beautis-Logo.png" alt="Beautis-Logo" /></a>
+        </div>
+        <div class="lines">
+            <div class="header_block container">
+                <img src="./Images/Search.png" alt="search" />
+                <input type="search" placeholder="Поиск" class="header_search" />
+                <a href="#!" class="header_basket">Корзина <img src="./Images/Cart.png" alt="basket" /></a>
             </div>
-            <div class="lines">
-                <div class="header_block container">
-                    <img src="./Images/Search.png" alt="search" />
-                    <input
-                        type="search"
-                        placeholder="Поиск"
-                        class="header_search"
-                    />
-                    <a href="#!" class="header_basket"
-                        >Корзина <img src="./Images/Cart.png" alt="basket"
-                    /></a>
-                </div>
+        </div>
+    </header>
+    <main>
+        <div class="filters">
+            <button class="cancel">СБРОСИТЬ ФИЛЬТРЫ</button>
+            <div class="create-line"></div>
+            <div class="price">
+                <section>ЦЕНА, ДОЛЛАРЫ</section>
             </div>
-        </header>
-        <main>
-            <div class="filters">
-                <button class="cancel">СБРОСИТЬ ФИЛЬТРЫ</button>
-                <div class="create-line"></div>
-                <div class="price">
-                    <section>ЦЕНА, ДОЛЛАРЫ</section>
-                </div>
-                <div class="price-input-one">
-                    <input class="input-text" type="text" value="" />
-                </div>
-                <div class="price-input-two">
-                    <input class="input-text" type="text" value="" />
-                </div>
-                <div class="create-line2"></div>
+            <div class="price-input-one">
+                <input class="input-text" type="text" value="8" />
+            </div>
+            <div class="price-input-two">
+                <input class="input-text" type="text" value="40" />
+            </div>
+            <div class="create-line2"></div>
 
-                <div class="brand">
-                    <section>БРЕНД</section>
-                </div>
-                <div class="brand-checkbox">
-                    <input
-                        type="checkbox"
-                        class="btn"
-                        value="Davines"
-                    />Davines<br />
-                    <input type="checkbox" class="btn" value="TIGI" />
-                    TIGI<br />
-                    <input type="checkbox" class="btn" value="Morgan" />
-                    Morgan's<br />
-                </div>
-                <div class="create-line3"></div>
-                <div class="rating">
-                    <section>РЕЙТИНГ</section>
-                </div>
+            <div class="brand">
+                <section>БРЕНД</section>
+            </div>
+            <div class="brand-checkbox">
+                <input type="checkbox" class="btn" value="Davines" />Davines<br />
+                <input type="checkbox" class="btn" value="TIGI" />
+                TIGI<br />
+                <input type="checkbox" class="btn" value="Morgan" />
+                Morgan's<br />
+            </div>
+            <div class="create-line3"></div>
+            <div class="rating">
+                <section>РЕЙТИНГ</section>
+            </div>
 
-                <div class="rate-input-one">
-                    <input class="input-text" type="text" value="" />
-                </div>
-                <div class="rate-input-two">
-                    <input class="input-text" type="text" value="" />
-                </div>
+            <div class="rate-input-one">
+                <input class="input-text" type="text" value="1" />
             </div>
-            <div class="catalog"></div>
-        </main>
-        <footer>
-            <div class="footer_logo container">
-                <img
-                    src="./Images/Beautis-Logo-footer.png"
-                    alt="Beautis-Logo"
-                />
+            <div class="rate-input-two">
+                <input class="input-text" type="text" value="5" />
             </div>
-            <div class="footer_blocks container">
-                <div class="blocks">
-                    <div class="footer_block-info">
-                        <h3>Информация</h3>
-                        <a href="#!">Договор оферты</a>
-                        <a href="#!">Обмен и возврат</a>
-                        <a href="#!">Оплата и доставка</a>
-                        <div class="footer_cards">
-                            <img src="./Images/Visa.png" alt="visa" /><img
-                                src="./Images/Master.png"
-                                alt="master-card"
-                            />
-                        </div>
-                    </div>
-                    <div class="footer_block-company">
-                        <h3>Компания</h3>
-                        <a href="#!">О проекте</a>
-                        <a href="#!">Сотрудничество</a>
+            <button class="submitall" type="submit">ПРИМЕНИТЬ ФИЛЬТРЫ</button>
+        </div>
+        <div class="catalog"></div>
+    </main>
+    <footer>
+        <div class="footer_logo container">
+            <img src="./Images/Beautis-Logo-footer.png" alt="Beautis-Logo" />
+        </div>
+        <div class="footer_blocks container">
+            <div class="blocks">
+                <div class="footer_block-info">
+                    <h3>Информация</h3>
+                    <a href="#!">Договор оферты</a>
+                    <a href="#!">Обмен и возврат</a>
+                    <a href="#!">Оплата и доставка</a>
+                    <div class="footer_cards">
+                        <img src="./Images/Visa.png" alt="visa" /><img src="./Images/Master.png" alt="master-card" />
                     </div>
                 </div>
-                <div class="blocks">
-                    <div class="footer_block-contact">
-                        <a href="tel:(+380) 99 154-69-17">+380 99 154-69-17</a>
-                        <p class="solid">
-                            Пн — пт <br />
-                            с 10:00 до 18:00
-                        </p>
-                        <a href="mailto:info@beautis.com.ua"
-                            >info@beautis.com.ua</a
-                        >
-                        <p>Украина, Харьков, <br />пл. Конституции, 26</p>
-                    </div>
-                </div>
-                <div class="footer_icons">
-                    <a href="#!" class="footer_icons-inst"
-                        ><img src="./Images/Insta.png" />Инстаграм</a
-                    >
-                    <a href="#!" class="footer_icons-faceb"
-                        ><img src="./Images/Facebook.png" />Фейсбук</a
-                    >
+                <div class="footer_block-company">
+                    <h3>Компания</h3>
+                    <a href="#!">О проекте</a>
+                    <a href="#!">Сотрудничество</a>
                 </div>
             </div>
-            <div class="footer_ container">
-                © Интернет-магазин Beautis. 2017—2020
+            <div class="blocks">
+                <div class="footer_block-contact">
+                    <a href="tel:(+380) 99 154-69-17">+380 99 154-69-17</a>
+                    <p class="solid">
+                        Пн — пт <br />
+                        с 10:00 до 18:00
+                    </p>
+                    <a href="mailto:info@beautis.com.ua">info@beautis.com.ua</a>
+                    <p>Украина, Харьков, <br />пл. Конституции, 26</p>
+                </div>
             </div>
-        </footer>
+            <div class="footer_icons">
+                <a href="#!" class="footer_icons-inst"><img src="./Images/Insta.png" />Инстаграм</a>
+                <a href="#!" class="footer_icons-faceb"><img src="./Images/Facebook.png" />Фейсбук</a>
+            </div>
+        </div>
+        <div class="footer_ container">
+            © Интернет-магазин Beautis. 2017—2020
+        </div>
+    </footer>
 
-        <script src="./index-catalog.js"></script>
-    </body>
+    <script src="./index-catalog.js"></script>
+</body>
+
 </html>
