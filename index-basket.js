@@ -80,20 +80,31 @@ function createBasketProduct(obj) {
 
     const minusButtons = document.querySelectorAll('.basket_minus-btn')
     const plusButtons = document.querySelectorAll('.basket_plus-btn')
-    const inputFields = document.querySelectorAll('.basket_input')
     minusButtons.forEach((element) => {
         element.onclick = function (event) {
             let button = event.target
-
             let card = button.closest('.basket_quantity')
             let mainCard = button.closest('.basket_products__container')
+            let cardWithId = mainCard.closest('.item')
             let inputValue = card.querySelector('.basket_input')
-            console.log(inputValue)
             if (inputValue.value > 1) {
                 inputValue.value--
-                let finalPrice = parseInt(obj.price) * inputValue.value
-                mainCard.querySelector('.basket_price').textContent =
-                    `${finalPrice}$`
+                fetch('http://localhost:3001/chosenProducts')
+                    .then((response) => response.json())
+                    .then((data) => {
+                        data.forEach((el) => {
+                            if (cardWithId.id == el.id) {
+                                let finalPrice =
+                                    parseInt(el.price) * inputValue.value
+                                mainCard.querySelector(
+                                    '.basket_price'
+                                ).textContent = `${finalPrice}$`
+                            }
+                        })
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             }
         }
     })
@@ -103,15 +114,30 @@ function createBasketProduct(obj) {
             let button = event.target
             let card = button.closest('.basket_quantity')
             let mainCard = button.closest('.basket_products__container')
+            let cardWithId = mainCard.closest('.item')
             let inputValue = card.querySelector('.basket_input')
             inputValue.value++
-            let finalPrice = parseInt(obj.price) * inputValue.value
-            mainCard.querySelector('.basket_price').textContent =
-                `${finalPrice}$`
+
+            fetch('http://localhost:3001/chosenProducts')
+                .then((response) => response.json())
+                .then((data) => {
+                    data.forEach((el) => {
+                        if (cardWithId.id == el.id) {
+                            let finalPrice =
+                                parseInt(el.price) * inputValue.value
+
+                            mainCard.querySelector(
+                                '.basket_price'
+                            ).textContent = `${finalPrice}$`
+                        }
+                    })
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     })
 }
-
 document.addEventListener('DOMContentLoaded', () => {
     getBasketData()
 })

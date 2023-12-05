@@ -151,16 +151,6 @@
       "price": "18$",
       "discount": "0%",
       "image": "./images/6.jpeg"
-    },
-    {
-      "id": "5",
-      "brand": "TIGI",
-      "name": "Несмываемый кондиционер для волос TIGI ego boost",
-      "size": "237 мл",
-      "ranking": "3",
-      "price": "37$",
-      "discount": "0%",
-      "image": "./images/5.png"
     }
   ],
   "orders": []
