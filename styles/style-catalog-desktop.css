@@ -481,7 +481,7 @@
     .footer_block-info > h3::after,
     .footer_block-company > h3::after {
         display: inline-block;
-        width: 214px;
+        width: 90%;
         border: 1px solid white;
         content: '';
     }
@@ -506,13 +506,12 @@
     }
 
     @media (width <1050px) {
-        .footer_logo {
-            max-width: 40vw;
-            margin: 0;
-        }
-
         .footer_logo > img {
-            max-width: 250px;
+            max-width: 350px;
+        }
+        .footer_block-info > h3::after,
+        .footer_block-company > h3::after {
+            width: 170px;
         }
 
         .blocks {

@@ -67,17 +67,7 @@
     }
 
     .header_basket {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        color: #000;
-        font-weight: 700;
-        font-size: 12px;
-        font-family: 'Manrope', sans-serif;
-        font-style: normal;
-        line-height: 20px;
-        letter-spacing: 0.56px;
-        text-transform: uppercase;
+        display: none;
     }
 
     main {
@@ -256,6 +246,10 @@
         font-size: 14px;
         line-height: 24px;
         background-color: rgb(48 96 73 / 100%);
+    }
+
+    .footer_logo > img {
+        max-width: 350px;
     }
 
     .footer_blocks {
