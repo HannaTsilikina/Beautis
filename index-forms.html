@@ -27,40 +27,41 @@
   </header>
   <main>
     <div class="main-div">
+      <form>
       <article>
         <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
         <section>
           <form class="formName" method="post">
             <h4>Имя</h4>
-            <input type="text" placeholder="Василиса" class="name form" required>
+            <input type="text" name="name" placeholder="Василиса" class="name form" required>
           </form>
           <form class="formSurname" method="post">
             <h4>Фамилия</h4>
-            <input type="text" placeholder="Прекрасная" class="surname form" required>
+            <input type="text" name="surname" placeholder="Прекрасная" class="surname form" required>
           </form>
           <form name="formEmail" method="post">
             <h4>Email</h4>
-            <input type="email" placeholder="heybeauty@gmail.com" class="email form" required>
+            <input type="email" name="email" placeholder="heybeauty@gmail.com" class="email form" required>
           </form>
         </section>
 
         <section>
           <h3>ДОСТАВКА</h3>
 
-          <form name="delivery" method="post">
-            <select class="deliverySelect" onchange='openHide()'>
+          <form method="post">
+            <select name="delivery" class="deliverySelect" onchange='openHide()'>
               <option value="getToDoor">До двери</option>
               <option value="getByMyself">Самовывоз</option>
             </select>
           </form>
           <form class="city" method="post">
             <h4>Город</h4>
-            <select id="cities">
+            <select name="city" id="cities">
             </select>
           </form>
           <form class="formStreet" method="post">
             <h4>Улица, дом, квартира</h4>
-            <input type="text" class="street form" placeholder='Главный проспект, 12, 333' required>
+            <input type="text" name="address" class="street form" placeholder='Главный проспект, 12, 333' required>
             </input>
           </form>
         </section>
@@ -68,7 +69,7 @@
         <section>
           <h3>ОПЛАТА</h3>
           <form method="post">
-            <select>
+            <select name="payment" class="payment">
               <option value="cash">Наличными при получении</option>
               <option value="card">Картой при получении</option>
             </select>
@@ -85,7 +86,9 @@
           <button class="backToCart btn-1">Отменить</button>
           <button type="submit" class="form btn-2">Завершить оформление</button>
         </div>
+        <div class="comments"></div>
       </article>
+    </form>
     </div>
 
   </main>

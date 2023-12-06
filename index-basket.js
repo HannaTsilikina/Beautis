@@ -64,7 +64,7 @@ function createBasketProduct(obj) {
                 <div class="basket_products__name">${name}</div>
                   <div class="basket_quantity">
                     <button class="basket_minus-btn" type="button" name="button"></button>
-                    <input class="basket_input" type="number" value="1" id="input" />
+                    <input class="basket_input" type="text" value="1" id="input" />
                     <button class="basket_plus-btn" type="button" name="button"></button>
                   </div>
                 </div>
@@ -77,31 +77,67 @@ function createBasketProduct(obj) {
                 <div><hr class="basket_line__gray" /></div>`
     div.insertAdjacentHTML('beforeend', el)
     basketProducts.appendChild(div)
-    // let quantity = document.querySelector('.basket_input')
-    // console.log(quantity)
-    // let finalPrice = parseInt(obj.price) * quantity.value
-    // console.log(document.querySelector('.basket_price'))
-    // console.log(finalPrice)
-    // document.querySelector('.basket_price').textContent = `${finalPrice}$`
-    // console.log(document.querySelector('.basket_price'))
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-    getBasketData()
-})
+    const minusButtons = document.querySelectorAll('.basket_minus-btn')
+    const plusButtons = document.querySelectorAll('.basket_plus-btn')
+    minusButtons.forEach((element) => {
+        element.onclick = function (event) {
+            let button = event.target
+            let card = button.closest('.basket_quantity')
+            let mainCard = button.closest('.basket_products__container')
+            let cardWithId = mainCard.closest('.item')
+            let inputValue = card.querySelector('.basket_input')
+            if (inputValue.value > 1) {
+                inputValue.value--
+                fetch('http://localhost:3001/chosenProducts')
+                    .then((response) => response.json())
+                    .then((data) => {
+                        data.forEach((el) => {
+                            if (cardWithId.id == el.id) {
+                                let finalPrice =
+                                    parseInt(el.price) * inputValue.value
+                                mainCard.querySelector(
+                                    '.basket_price'
+                                ).textContent = `${finalPrice}$`
+                            }
+                        })
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }
+        }
+    })
 
-const minusButtons = document.querySelectorAll('.basket_minus-btn')
-const plusButtons = document.querySelectorAll('.basket_plus-btn')
+    plusButtons.forEach((element) => {
+        element.onclick = function (event) {
+            let button = event.target
+            let card = button.closest('.basket_quantity')
+            let mainCard = button.closest('.basket_products__container')
+            let cardWithId = mainCard.closest('.item')
+            let inputValue = card.querySelector('.basket_input')
+            inputValue.value++
 
-for (let i = 0; i < minusButtons.length; i++) {
-    minusButtons[i].addEventListener('click', function minusProduct() {
-        if (inputFields[i].value > 1) {
-            inputFields[i].value--
+            fetch('http://localhost:3001/chosenProducts')
+                .then((response) => response.json())
+                .then((data) => {
+                    data.forEach((el) => {
+                        if (cardWithId.id == el.id) {
+                            let finalPrice =
+                                parseInt(el.price) * inputValue.value
+
+                            mainCard.querySelector(
+                                '.basket_price'
+                            ).textContent = `${finalPrice}$`
+                        }
+                    })
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     })
 }
-for (let i = 0; i < plusButtons.length; i++) {
-    plusButtons[i].addEventListener('click', function plusProduct() {
-        inputFields[i].value++
-    })
-}
+document.addEventListener('DOMContentLoaded', () => {
+    getBasketData()
+})

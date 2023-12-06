@@ -4,33 +4,13 @@ let email = document.querySelector('.email');
 let formName = document.querySelector('.formName');
 let formSurname = document.querySelector('.formSurname');
 let formEmail = document.querySelector('.formEmail');
-/*formName.onsubmit = function(evt) {
-    if (name.value == '') {
-      evt.preventDefault();
-    }
-  };
-  formSurname.onsubmit = function(evt) {
-    if (surname.value == '') {
-      evt.preventDefault();
-    }
-  };
-  formEmail.onsubmit = function(evt) {
-    if (email.value == '') {
-      evt.preventDefault();
-    }
-  };*/
+let finalButton = document.querySelector('.btn-2');
 
-//шаблон для регистра вводимых значений
-function inputSize() {
-let checkedName = name.value;
-name.textContent = checkedName[0].toUpperCase() + checkedName.slice(1).toLowerCase();
-
-let checkedSurname = surname.value;
-surname.textContent = checkedSurname[0].toUpperCase() + checkedSurname.slice(1).toLowerCase();
-
-let checkedEmail = email.value;
-email.textContent = checkedEmail.slice(0).toLowerCase();
-};
+let deliveryInfo = document.querySelector('.deliverySelect');
+let cityInfo = document.querySelector('#cities');
+let streetInfo = document.querySelector('.street');
+let paymentInfo = document.querySelector('.payment');
+let comments = document.querySelector('.comments');
 
 
 //появление и удаление доп инпута с улицей и домом в зависимости от выбора доставки до двери и самовывоза, соответственно
@@ -100,6 +80,32 @@ for (i = 0; i<citiesList.length; i++) {
     citiesParent.append(citiesChild);
 };
 
+//Проверка полей и отправка данных в формах на сервер при нажатии кнопки ОФОРМИТЬ ЗАКАЗ
+finalButton.addEventListener('click', function checkAndSend () {
+  if (name.value == '' || surname.value == '' || email.value == '') {
+  comments.innerHTML = 'Заполните ВСЕ поля';
+  }
+   else {
+    let x = {
+      name: name.value,
+      surname: surname.value,
+      email: email.value,
+      delivery: deliveryInfo.value,
+      city: cityInfo.value,
+      address: streetInfo.value,
+      payment: paymentInfo.value
+      };
+    comments.innerHTML = '';
+    fetch ('http://localhost:3001/order-details', {
+      method: 'POST',
+      body: JSON.stringify(x),
+      headers: {'Content-type': 'application/json'},
+      })
+      .then((response) => {
+        console.log(response)});
+    }
+});
+
 /*
 //работа с модулем Nodemailer
 const nodemailer = require('nodemailer')
@@ -108,14 +114,14 @@ const transporter = nodemailer.createTransport(
     {
         host: 'smtp.gmail.com',
         port: 587,
-        secure: false, 
+        secure: false,
         auth: {
-            user: 'bogdanovaelis@gmail.com', 
-            pass: 'elissyele11' 
+            user: 'bogdanovaelis@gmail.com',
+            pass: 'elissyele11'
         }
     },
     {
-        from: 'Mailer Test <bogdanovaelis@gmail.com>' 
+        from: 'Mailer Test <bogdanovaelis@gmail.com>'
     }
 )
 
