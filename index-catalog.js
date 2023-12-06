@@ -1,18 +1,24 @@
-// //fetch('http://localhost:3001/products')
-//   .then((res) => {
-//     console.log(res);
-//   });// получить данные
+let submit = document.getElementById('submitall');//тут надо чето добавить чтобы дефолтные значения не считались
 
-//   let priceOne = document.getElementById('submitall');
+submit.addEventListener('click', getPrice);
 
-//   priceOne.addEventListener('click', getPrice);
 
-//   function getPrice() {
-//     let input_price1 = document.getElementById('input_price1').value;
-//     console.log(input_price1);
-//   } //получить инпуты
-
-//   let priceMax = getPrice();//ввести переменные
+function getPrice() {
+  let input_pricemin = document.getElementById('input_price1').value;
+  console.log(input_pricemin);
+  let input_pricemax = document.getElementById('input_price2').value;
+  console.log(input_pricemax);
+  // let davinescheckbox = document.getElementsById('davineschekbox').value;
+  // console.log(davinescheckbox);
+  // let tigicheckbox = document.getElementsById('tigichekbox').value;
+  // console.log(tigicheckbox);
+  // let morgancheckbox = document.getElementsById('morganchekbox').value;
+  // console.log(morgancheckbox);
+  let input_ratemin = document.getElementById('input_ratemin').value;
+  console.log(input_ratemin);
+  let input_ratemax = document.getElementById('input_ratemax').value;
+  console.log(input_ratemax);
+} //получить инпуты
 
 
 // Создание каталога
