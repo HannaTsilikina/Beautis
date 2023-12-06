@@ -122,3 +122,8 @@ input:valid {
 article {
     margin-bottom: 30px;
 }
+
+.comments {
+  color: red;
+  font-size: 18px;
+}
