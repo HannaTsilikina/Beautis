@@ -1,12 +1,35 @@
 let basketProducts = document.querySelector('.basket_products')
+const btnOrder = document.querySelector('#btn-order')
+btnOrder.setAttribute('disabled', true)
+btnOrder.classList.add('basket_btn-order_non')
+const btnClose = document.querySelector('#btn-close')
 
 function getBasketData() {
     fetch('http://localhost:3001/chosenProducts')
         .then((response) => response.json())
         .then((data) => {
             if (data.length > 0) {
+                btnOrder.removeAttribute('disabled')
+                btnOrder.classList.remove('basket_btn-order_non')
+                btnOrder.classList.add('basket_btn-order')
+
+                const totalDiv = document.querySelector('.total_container_main')
+                const total = `<hr class="basket_line" />
+              <div class="total_container">
+              <div class="total_text">Итого</div>
+              <div class="total_sum"></div>
+              </div>`
+                totalDiv.insertAdjacentHTML('beforeend', total)
                 data.forEach((object) => {
                     createBasketProduct(object)
+
+                    let total = document.querySelector('.total_sum')
+                    let prices = document.querySelectorAll('.basket_price')
+                    let sum = 0
+                    pricesValues = prices.forEach((el) => {
+                        sum = sum + parseInt(el.textContent)
+                        total.textContent = `${sum}$ `
+                    })
                 })
                 let btnClose = document.querySelectorAll('.close')
                 btnClose.forEach((button) => {
@@ -29,6 +52,15 @@ function getBasketData() {
                                     })
                                     .catch((err) => console.log(err))
                                 basketProducts.removeChild(div)
+
+                                let total = document.querySelector('.total_sum')
+                                let prices =
+                                    document.querySelectorAll('.basket_price')
+                                let sum = 0
+                                pricesValues = prices.forEach((el) => {
+                                    sum = sum + parseInt(el.textContent)
+                                    total.textContent = `${sum}$ `
+                                })
                                 if (
                                     document.querySelectorAll('.item').length ==
                                     0
@@ -36,6 +68,7 @@ function getBasketData() {
                                     const div = document.createElement('div')
                                     div.classList.add('basket_no-products')
                                     const el = document.createElement('div')
+                                    el.classList.add('no-products')
                                     el.textContent = 'В корзине нет товаров'
                                     basketProducts.append(el)
                                 }
@@ -99,6 +132,14 @@ function createBasketProduct(obj) {
                                 mainCard.querySelector(
                                     '.basket_price'
                                 ).textContent = `${finalPrice}$`
+                                let total = document.querySelector('.total_sum')
+                                let prices =
+                                    document.querySelectorAll('.basket_price')
+                                let sum = 0
+                                pricesValues = prices.forEach((el) => {
+                                    sum = sum + parseInt(el.textContent)
+                                    total.textContent = `${sum}$ `
+                                })
                             }
                         })
                     })
@@ -129,6 +170,14 @@ function createBasketProduct(obj) {
                             mainCard.querySelector(
                                 '.basket_price'
                             ).textContent = `${finalPrice}$`
+                            let total = document.querySelector('.total_sum')
+                            let prices =
+                                document.querySelectorAll('.basket_price')
+                            let sum = 0
+                            pricesValues = prices.forEach((el) => {
+                                sum = sum + parseInt(el.textContent)
+                                total.textContent = `${sum}$ `
+                            })
                         }
                     })
                 })
