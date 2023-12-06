@@ -15,15 +15,17 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px 0 10%;
+        box-sizing: border-box;
+        padding: 20px 0;
     }
 
     .catalog {
         display: grid;
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 25%);
         grid-template-columns: repeat(3, 1fr);
-        gap: 3%;
-        padding: 20px;
+        gap: 10px;
+        box-sizing: border-box;
+        padding: 20px 20px 50px;
         transition-delay: 2s;
     }
 
@@ -38,7 +40,8 @@
             display: grid;
             grid-template-rows: repeat(6, 1fr);
             grid-template-columns: repeat(2, 1fr);
-            gap: 3%;
+            gap: 10px;
+            box-sizing: border-box;
             padding: 20px;
             transition-delay: 2s;
         }

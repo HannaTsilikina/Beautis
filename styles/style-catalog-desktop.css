@@ -2,6 +2,7 @@
 /* stylelint-disable prettier/prettier */
 @media (width >=800px) {
   body {
+    margin: 10px;
     font-weight: 700;
     font-size: 12px;
     font-family: Manrope, sans-serif;
@@ -80,16 +81,15 @@
   }
 
   /* тут стили для мэйна каталога  */
-  body {
-    margin: 10px;
-  }
+
 
   main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    padding: 70px 0 20px;
+    box-sizing: border-box;
+    padding: 70px 0;
 
   }
 
@@ -103,7 +103,6 @@
     color: #000;
     font-weight: 600;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 20px;
   }
@@ -118,7 +117,6 @@
     color: #000;
     font-weight: 600;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     background-color: #FFF;
     border: 0;
@@ -234,11 +232,13 @@
 
   .catalog {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(4, 1fr);
     gap: 2%;
+    box-sizing: border-box;
     padding: 20px;
+    padding-bottom: 50px;
     transition-delay: 2s;
+
   }
 
   .img-card {
@@ -251,11 +251,16 @@
   @media (width <=1200px) {
     .catalog {
       display: grid;
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 24%);
       grid-template-columns: repeat(3, 1fr);
       gap: 2%;
+      box-sizing: border-box;
       padding: 20px;
       transition-delay: 2s;
+    }
+
+    .footer_icons{
+      width: 20%;
     }
 
     .img-card {
@@ -272,6 +277,7 @@
     gap: 5px;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     max-width: 264px;
     padding: 10px;
 
@@ -292,7 +298,6 @@
     color: #000;
     font-weight: 400;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 20px;
 
@@ -305,7 +310,6 @@
     color: #000;
     font-weight: 700;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 18px;
 
@@ -320,7 +324,6 @@
     color: #000;
     font-weight: 400;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 20px;
 
@@ -342,7 +345,6 @@
     color: white;
     font-weight: 700;
     font-size: 28px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 28px;
 
@@ -357,7 +359,6 @@
     color: #306049;
     font-weight: 700;
     font-size: 28px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 28px;
 
@@ -410,7 +411,6 @@
     color: #FFF;
     font-weight: 700;
     font-size: 12px;
-    font-family: Manrope;
     font-style: normal;
     line-height: 18px;
 
@@ -424,23 +424,13 @@
 
   }
 
-  /* .button-buy-one {
-  padding-top: 12px;
-  color: #306049;
-  font-weight: 700;
-  font-size: 12px;
-  font-family: Manrope;
-  font-style: normal;
-  line-height: 20px;
-  text-align: center;
-  background: none;
-  border: none;
-} */
 
-  /* .button-buy-one:hover {
-  text-decoration: underline;
-} */
+  .button-buy:hover {
+    color: #306049;
+    background-color: #FFF;
+    border: 1px solid #306049;
 
+<<<<<<< HEAD
   .button-buy:hover {
     color: #306049;
     background-color: #FFF;
@@ -543,3 +533,116 @@
     font-size: 12px;
     line-height: 16px;
   }
+=======
+  }
+
+  .transition {
+    transition: 2s;
+  }
+
+  /* footer  */
+  footer {
+    /* height: 40%; */
+    color: #FFF;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: rgb(48 96 73 / 100%);
+  }
+
+  .footer_blocks{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 176px;
+    margin: 0 5px;
+    padding: 80px 0;
+  }
+
+  .blocks{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .footer_block-info, .footer_block-company, .footer_block-contact, .footer_icons{
+    display: flex;
+    flex-direction: column;
+    height: 173px;
+  }
+
+  .footer_block-info>h3, .footer_block-company>h3{
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  .footer_block-info>h3::after, .footer_block-company>h3::after{
+    display: inline-block;
+    width: 214px;
+    border: 1px solid white;
+    content: '';
+  }
+
+  .footer_cards{
+    display: flex;
+    gap: 10px;
+    padding:24px 0 0;
+    opacity: 0.5;
+  }
+
+  .footer_block-contact{
+    grid-column: 2/3;
+  }
+
+  .footer_icons{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -1.44px;
+    text-transform: uppercase;
+  }
+
+  @media (width <1050px) {
+    .footer_logo  {
+      max-width: 40vw;
+      margin: 0;
+    }
+
+    .footer_logo > img  {
+      max-width: 250px;
+
+    }
+
+    .blocks {
+      gap: 5px;
+    }
+
+    .footer_icons{
+      font-size: 14px;
+    }
+  }
+
+  .footer_icons-faceb,.footer_icons-inst{
+    display: flex;
+    gap: 10px;
+    align-items: center
+  }
+
+  .footer_icons-faceb>img,.footer_icons-inst>img{
+    width: 36px;
+    height: 36px;
+  }
+
+  .solid, .footer_{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+>>>>>>> 3222f3cda6b92c543b4e7678f432492fe5e9baf1
