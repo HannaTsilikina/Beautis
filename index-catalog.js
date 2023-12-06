@@ -1,24 +1,37 @@
-let submit = document.getElementById('submitall');//тут надо чето добавить чтобы дефолтные значения не считались
+// fetch ('http://localhost:3001/products', {
+// method: 'GET'})
+//  .then((res) => {
+//     return res.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log('Ошибка. Запрос не выполнен: ', err);
+//   });//получить данные json
 
-submit.addEventListener('click', getPrice);
+//   //создать массив объектов на базе json
+//   document.getElementById('submitall');// обработчик событий на кнопку, тут надо чето добавить чтобы дефолтные значения не считались?
+
+// submit.addEventListener('click', getPrice);
 
 
-function getPrice() {
-  let input_pricemin = document.getElementById('input_price1').value;
-  console.log(input_pricemin);
-  let input_pricemax = document.getElementById('input_price2').value;
-  console.log(input_pricemax);
-  // let davinescheckbox = document.getElementsById('davineschekbox').value;
-  // console.log(davinescheckbox);
-  // let tigicheckbox = document.getElementsById('tigichekbox').value;
-  // console.log(tigicheckbox);
-  // let morgancheckbox = document.getElementsById('morganchekbox').value;
-  // console.log(morgancheckbox);
-  let input_ratemin = document.getElementById('input_ratemin').value;
-  console.log(input_ratemin);
-  let input_ratemax = document.getElementById('input_ratemax').value;
-  console.log(input_ratemax);
-} //получить инпуты
+// function getPrice() {
+//   let input_pricemin = document.getElementById('input_price1').value;
+//   console.log(input_pricemin);
+//   let input_pricemax = document.getElementById('input_price2').value;
+//   console.log(input_pricemax);
+//   // let davinescheckbox = document.getElementsById('davineschekbox').value;
+//   // console.log(davinescheckbox);
+//   // let tigicheckbox = document.getElementsById('tigichekbox').value;
+//   // console.log(tigicheckbox);
+//   // let morgancheckbox = document.getElementsById('morganchekbox').value;
+//   // console.log(morgancheckbox);
+//   let input_ratemin = document.getElementById('input_ratemin').value;
+//   console.log(input_ratemin);
+//   let input_ratemax = document.getElementById('input_ratemax').value;
+//   console.log(input_ratemax);
+// } //получить инпуты
 
 
 // Создание каталога
