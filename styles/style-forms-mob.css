@@ -1,164 +1,166 @@
 @media (width <800px) {
-  body {
-      font-weight: 400;
-      font-size: 12px;
-      font-family: 'Manrope', sans-serif;
-      line-height: 20px;
-      letter-spacing: 0.48px;
-  }
-  a{
-    color: white;
-    text-decoration: none;
-  }
-
-  /* header */
-  .header_logo, .footer_logo{
-    padding: 15px;
-  }
-
-  @media (width< 600px) {
-
-    .header_logo, .footer_logo{
-      padding: 10px;
+    body {
+        font-weight: 400;
+        font-size: 12px;
+        font-family: 'Manrope', sans-serif;
+        line-height: 20px;
+        letter-spacing: 0.48px;
+    }
+    a {
+        color: white;
+        text-decoration: none;
     }
 
-    .header_logo>a>img, .footer_logo>img{
-      width: 350px;
-    }
-  }
-
-  .lines{
-    height: 50px;
-  }
-
-  .header_block{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .lines::before,.lines::after{
-    display: inline-block;
-    width: 100%;
-    border: 1px solid black;
-    content: '';
-  }
-
-  .header_search{
-    display: none;
-    /*width: 100%;
-    height: 100%;
-    border:0;*/
-  }
-
-  .header_basket{
-    display: none;
-  }
-
-
-
-
-  footer {
-    /* height: 40%; */
-    color: #FFF;
-    font-size: 14px;
-    line-height: 24px;
-    background-color: rgb(48 96 73 / 100%);
-  }
-
-  .footer_blocks{
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: 1fr;
-    gap:15px;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 600px;
-    padding: 15px;
-  }
-
-  .footer_block-info, .footer_block-company, .footer_block-contact, .footer_icons{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer_block-info>h5, .footer_block-company>h5{
-    margin: none;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
-  }
-
-  .footer_block-info>h5::after, .footer_block-company>h5::after{
-    display: inline-block;
-    width: 175px;
-    border: 1px solid white;
-    content: '';
-  }
-
-  .footer_cards{
-    display: flex;
-    gap: 10px;
-    padding:24px 0 0;
-    opacity: 0.5;
-  }
-  .blocks{
-    display: grid;
-  }
-  .footer_blocks-contact{
-    grid-row: 1/2;
-  }
-
-  .footer_blocks-info{
-    grid-row: 2/3;
-    gap: 20px;
-  }
-  .footer_block-info{
-    grid-row: 2/3;
-  }
-
-  .footer_icons{
-    padding: 10px 0;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.72px;
-    text-transform: uppercase;
-  }
-
-  .footer_icons-faceb,.footer_icons-inst{
-    display: flex;
-    gap: 10px;
-    align-items: center
-  }
-
-  .footer_icons-faceb>img,.footer_icons-inst>img{
-    width: 28px;
-    height: 28px;
-  }
-
-  .solid, .footer_{
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 16px;
-  }
-
-
-  .footer_{
-    padding: 0 15px 5px;
-  }
-
-  @media (width < 600px){
-    .footer_icons-inst, .footer_icons-faceb{
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 30px;
+    /* header */
+    .header_logo,
+    .footer_logo {
+        padding: 15px;
     }
 
-    .footer_icons-faceb>img,.footer_icons-inst>img{
-      width: 24px;
-      height: 24px;
+    @media (width< 600px) {
+        .header_logo,
+        .footer_logo {
+            padding: 10px;
+        }
+
+        .header_logo > a > img,
+        .footer_logo > img {
+            width: 350px;
+        }
     }
-  }
+    .lines {
+        height: 50px;
+    }
+
+    .header_block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .lines::before {
+        display: inline-block;
+        width: 100%;
+        border: 1px solid black;
+        content: '';
+    }
+
+    .header_search,
+    .header_basket,
+    .img_search {
+        display: none;
+    }
+
+    footer {
+        /* height: 40%; */
+        color: #fff;
+        font-size: 14px;
+        line-height: 24px;
+        background-color: rgb(48 96 73 / 100%);
+    }
+
+    .footer_blocks {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: 1fr;
+        gap: 15px;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 600px;
+        padding: 15px;
+    }
+
+    .footer_block-info,
+    .footer_block-company,
+    .footer_block-contact,
+    .footer_icons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer_block-info > h5,
+    .footer_block-company > h5 {
+        margin: none;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+
+    .footer_block-info > h5::after,
+    .footer_block-company > h5::after {
+        display: inline-block;
+        width: 175px;
+        border: 1px solid white;
+        content: '';
+    }
+
+    .footer_cards {
+        display: flex;
+        gap: 10px;
+        padding: 24px 0 0;
+        opacity: 0.5;
+    }
+    .blocks {
+        display: grid;
+    }
+    .footer_blocks-contact {
+        grid-row: 1/2;
+    }
+
+    .footer_blocks-info {
+        grid-row: 2/3;
+        gap: 20px;
+    }
+    .footer_block-info {
+        grid-row: 2/3;
+    }
+
+    .footer_icons {
+        padding: 10px 0;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: -0.72px;
+        text-transform: uppercase;
+    }
+
+    .footer_icons-faceb,
+    .footer_icons-inst {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .footer_icons-faceb > img,
+    .footer_icons-inst > img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .solid,
+    .footer_ {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .footer_ {
+        padding: 0 15px 5px;
+    }
+
+    @media (width < 600px) {
+        .footer_icons-inst,
+        .footer_icons-faceb {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 30px;
+        }
+
+        .footer_icons-faceb > img,
+        .footer_icons-inst > img {
+            width: 24px;
+            height: 24px;
+        }
+    }
 }
