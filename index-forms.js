@@ -12,6 +12,8 @@ let streetInfo = document.querySelector('.street');
 let paymentInfo = document.querySelector('.payment');
 let comments = document.querySelector('.comments');
 
+let finalPrice = document.querySelector('#finalPrice');
+finalPrice.textContent = 'XXX' +'$' //сюда добавить финальную цену
 
 //появление и удаление доп инпута с улицей и домом в зависимости от выбора доставки до двери и самовывоза, соответственно
 let hide = document.querySelector('.formStreet');

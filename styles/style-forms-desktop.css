@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Lato:wght@400;700;900&family=Manrope:wght@400;700&display=swap');
 
+@media (width >= 1000px) {
 /*HEADER*/
 .header_logo, .footer_logo{
   padding: 20px;
@@ -100,13 +101,12 @@ select {
 .buttons {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
-    padding: 15px;
+    padding-bottom: 20px;
 }
 
 .btn-1,
 .btn-2 {
-    width: 100%;
+  width: 100%;
     color: #306049;
     border-radius: 4px;
     border-color: #306049;
@@ -114,8 +114,8 @@ select {
     font-size: 20px;
     font-style: normal;
     line-height: 20px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
     height: 2.5em;
 }
 
@@ -135,6 +135,13 @@ h2 {
     font-style: normal;
     font-weight: 700;
     line-height: 36px;
+}
+
+.finalPrice_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .finalPrice {
@@ -248,4 +255,5 @@ footer {
   line-height: 48px;
   letter-spacing: -1.44px;
   text-transform: uppercase;
+}
 }
