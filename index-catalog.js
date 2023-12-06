@@ -4,7 +4,8 @@
 //     return res.json();
 //   })
 //   .then((data) => {
-//     console.log(data);
+//     const jsonArray = Array.from(data);
+//     console.log(jsonArray);
 //   })
 //   .catch((err) => {
 //     console.log('Ошибка. Запрос не выполнен: ', err);
@@ -13,10 +14,10 @@
 //   //создать массив объектов на базе json
 //   document.getElementById('submitall');// обработчик событий на кнопку, тут надо чето добавить чтобы дефолтные значения не считались?
 
-// submit.addEventListener('click', getPrice);
+// submit.addEventListener('click', getData);
 
 
-// function getPrice() {
+// function getData() {
 //   let input_pricemin = document.getElementById('input_price1').value;
 //   console.log(input_pricemin);
 //   let input_pricemax = document.getElementById('input_price2').value;
