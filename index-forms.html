@@ -25,42 +25,43 @@
       </div>
     </div>
   </header>
+
   <main>
     <div class="main-div">
+      <form>
       <article>
         <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
         <section>
           <form class="formName" method="post">
             <h4>Имя</h4>
-            <input type="text" placeholder="Василиса" class="name form" required>
+            <input type="text" name="name" placeholder="Василиса" class="name form" required>
           </form>
           <form class="formSurname" method="post">
             <h4>Фамилия</h4>
-            <input type="text" placeholder="Прекрасная" class="surname form" required>
+            <input type="text" name="surname" placeholder="Прекрасная" class="surname form" required>
           </form>
           <form name="formEmail" method="post">
             <h4>Email</h4>
-            <input type="email" placeholder="heybeauty@gmail.com" class="email form" required>
+            <input type="email" name="email" placeholder="heybeauty@gmail.com" class="email form" required>
           </form>
         </section>
 
         <section>
           <h3>ДОСТАВКА</h3>
-
-          <form name="delivery" method="post">
-            <select class="deliverySelect" onchange='openHide()'>
+          <form method="post">
+            <select name="delivery" class="deliverySelect" onchange='openHide()'>
               <option value="getToDoor">До двери</option>
               <option value="getByMyself">Самовывоз</option>
             </select>
           </form>
           <form class="city" method="post">
             <h4>Город</h4>
-            <select id="cities">
+            <select name="city" id="cities">
             </select>
           </form>
           <form class="formStreet" method="post">
             <h4>Улица, дом, квартира</h4>
-            <input type="text" class="street form" placeholder='Главный проспект, 12, 333' required>
+            <input type="text" name="address" class="street form" placeholder='Главный проспект, 12, 333' required>
             </input>
           </form>
         </section>
@@ -68,7 +69,7 @@
         <section>
           <h3>ОПЛАТА</h3>
           <form method="post">
-            <select>
+            <select name="payment" class="payment">
               <option value="cash">Наличными при получении</option>
               <option value="card">Картой при получении</option>
             </select>
@@ -77,23 +78,28 @@
       </article>
 
       <article class="white">
-        <div>
+        <div class="finalPrice_container">
           <h2 class="finalPrice">ИТОГО</h2>
-          <p id="finalPrice"></p>
+          <p id="finalPrice" class="finalPrice"></p>
         </div>
         <div class="buttons">
           <button class="backToCart btn-1">Отменить</button>
           <button type="submit" class="form btn-2">Завершить оформление</button>
         </div>
+        <div class="comments"></div>
       </article>
+    </form>
     </div>
 
   </main>
+
   <footer>
     <div class="footer_logo container">
       <img src="./Images/Beautis-Logo-footer.png" alt="Beautis-Logo" />
     </div>
+
     <div class="footer_blocks container">
+
       <div class="blocks">
         <div class="footer_block-info">
           <h3>Информация</h3>
@@ -110,6 +116,7 @@
           <a href="#!">Сотрудничество</a>
         </div>
       </div>
+
       <div class="blocks">
         <div class="footer_block-contact">
           <a href="tel:(+380) 99 154-69-17">+380 99 154-69-17</a>
@@ -121,16 +128,18 @@
           <p>Украина, Харьков, <br />пл. Конституции, 26</p>
         </div>
       </div>
+
       <div class="footer_icons">
         <a href="#!" class="footer_icons-inst"><img src="./Images/Insta.png" />Инстаграм</a>
         <a href="#!" class="footer_icons-faceb"><img src="./Images/Facebook.png" />Фейсбук</a>
       </div>
+
     </div>
-    <div class="footer_ container">
+
+    <div class="footer_container">
       © Интернет-магазин Beautis. 2017—2020
     </div>
   </footer>
-
   <script src="./index-forms.js"></script>
         </body >
             </html >
