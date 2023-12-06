@@ -150,8 +150,40 @@
       "ranking": "5",
       "price": "40$",
       "discount": "0%",
-      "image": "./images/7.png"
+      "image": "./images/6.jpeg"
+    },
+    {
+      "id": "3",
+      "brand": "Davines",
+      "name": "Баттер для волос Davines OI HAIR BUTTER",
+      "size": "250 мл",
+      "ranking": "5",
+      "price": "40$",
+      "discount": "0%",
+      "image": "./images/3.jpeg"
+    },
+    {
+      "id": "4",
+      "brand": "Davines",
+      "name": "Сыворотка для волос Davines OI Oil Absolute COLOUR GLOSS",
+      "size": "15 мл",
+      "ranking": "4",
+      "price": "10$",
+      "discount": "20%",
+      "image": "./images/4.jpeg"
     }
   ],
-  "orders": []
+  "orders": [],
+  "order-details": [
+    {
+      "name": "x",
+      "surname": "x",
+      "email": "x",
+      "delivery": "getByMyself",
+      "city": "Бухарест",
+      "address": "x",
+      "payment": "cash",
+      "id": 1
+    }
+  ]
 }
