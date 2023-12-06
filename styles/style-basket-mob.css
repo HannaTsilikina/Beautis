@@ -50,7 +50,10 @@
     .img_search {
         display: none;
     }
+}
 
+/*footer*/
+@media (width <800px) {
     footer {
         /* height: 40%; */
         color: #fff;
@@ -83,15 +86,16 @@
         flex-direction: column;
     }
 
-    .footer_block-info > h5,
-    .footer_block-company > h5 {
+    .footer_block-info > h3,
+    .footer_block-company > h3 {
         font-size: 14px;
         line-height: 20px;
         text-transform: uppercase;
+        margin: 5px 0;
     }
 
-    .footer_block-info > h5::after,
-    .footer_block-company > h5::after {
+    .footer_block-info > h3::after,
+    .footer_block-company > h3::after {
         display: inline-block;
         width: 175px;
         border: 1px solid white;

@@ -52,13 +52,19 @@
     .img_search {
         display: none;
     }
+}
 
+/*    footer     */
+@media (width <800px) {
     footer {
-        /* height: 40%; */
         color: #fff;
         font-size: 14px;
         line-height: 24px;
         background-color: rgb(48 96 73 / 100%);
+    }
+
+    .footer_logo > img {
+        max-width: 350px;
     }
 
     .footer_blocks {
@@ -68,8 +74,8 @@
         gap: 15px;
         align-items: flex-start;
         justify-content: space-between;
-        height: 600px;
         max-width: 250px;
+        height: 600px;
         padding: 15px;
     }
 
@@ -83,10 +89,10 @@
 
     .footer_block-info > h5,
     .footer_block-company > h5 {
-        margin: none;
         font-size: 14px;
         line-height: 20px;
         text-transform: uppercase;
+        margin: 5px 0;
     }
 
     .footer_block-info > h5::after,
@@ -167,7 +173,3 @@
         }
     }
 }
-
-
-
-

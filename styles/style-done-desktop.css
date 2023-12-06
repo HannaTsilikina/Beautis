@@ -48,7 +48,9 @@
     .img_search {
         display: none;
     }
+}
 
+@media (width >= 800px) {
     /* footer  */
     footer {
         color: #fff;

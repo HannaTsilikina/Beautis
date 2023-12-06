@@ -184,12 +184,11 @@ function performSearch() {
                 )
             })
 
-            // отображения результатов поиска
+            // отображения результатов
+            catalog.innerHTML = ''
             if (filterProducts.length > 0) {
-                catalog.innerHTML = ''
                 filterProducts.forEach((el) => newPost(el))
             } else {
-                catalog.innerHTML = ''
                 const failedSearch = document.createElement('h1')
                 failedSearch.textContent = 'Ничего не найдено'
                 catalog.append(failedSearch)
