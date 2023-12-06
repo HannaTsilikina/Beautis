@@ -103,30 +103,29 @@ function newPost(obj) {
         oldPriceContainer.classList.add('hidden')
     }
     const buttonBuy = document.createElement('button')
-    buttonBuy.classList.add('button-to-card')
-    buttonBuy.classList.add('hidden-button')
+
+    buttonBuy.classList.add('hidden')
     buttonBuy.textContent = ' Купить '
     card.append(buttonBuy)
     buttonBuy.onmouseover = function transit() {
         buttonBuy.classList.add('transition')
     }
 
-    // const buttonBuyInOneClick = document.createElement('button')
-    // buttonBuyInOneClick.classList.add('button-buy-one')
-    // buttonBuyInOneClick.classList.add('hidden')
-    // buttonBuyInOneClick.textContent = ' Купить в 1 клик'
+    const buttonBuyInOneClick = document.createElement('button')
+    buttonBuyInOneClick.classList.add('button-buy-one')
+    buttonBuyInOneClick.classList.add('hidden')
+    buttonBuyInOneClick.textContent = ' Купить в 1 клик'
 
-    // card.append(buttonBuyInOneClick)
-
+    card.append(buttonBuyInOneClick)
     card.onmouseover = function () {
-        buttonBuy.classList.remove('hidden-button')
-        // buttonBuyInOneClick.classList.remove('hidden')
+        buttonBuy.classList.remove('hidden')
+        buttonBuyInOneClick.classList.remove('hidden')
         card.classList.add('emphasized-card')
         buttonBuy.classList.add('button-buy')
     }
     card.onmouseout = function () {
-        buttonBuy.classList.add('hidden-button')
-        // buttonBuyInOneClick.classList.add('hidden')
+        buttonBuy.classList.add('hidden')
+        buttonBuyInOneClick.classList.add('hidden')
         card.classList.remove('emphasized-card')
         buttonBuy.classList.remove('button-buy')
     }
@@ -148,4 +147,53 @@ function drawRate(count, divToDraw) {
             divToDraw.append(star)
         }
     }
+}
+
+//попытка поиска
+
+const searchInput = document.querySelector('.header_search')
+const catalog = document.querySelector('.catalog')
+
+searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        performSearch()
+    } else {
+        delayedSearch()
+    }
+})
+
+let searchTimeout
+function delayedSearch() {
+    clearTimeout(searchTimeout)
+    searchTimeout = setTimeout(performSearch, 300)
+}
+
+function performSearch() {
+    fetch('http://localhost:3001/products')
+        .then((response) => response.json())
+        .then((data) => {
+            let trimSearch = searchInput.value.trim()
+            let search = trimSearch.toLowerCase()
+
+            // фильтрация товаров
+            let filterProducts = data.filter((product) => {
+                return (
+                    product.brand.toLowerCase().includes(search) ||
+                    product.name.toLowerCase().includes(search) ||
+                    product.size.toLowerCase().includes(search)
+                )
+            })
+
+            // отображения результатов поиска
+            if (filterProducts.length > 0) {
+                catalog.innerHTML = ''
+                filterProducts.forEach((el) => newPost(el))
+            } else {
+                catalog.innerHTML = ''
+                const failedSearch = document.createElement('h1')
+                failedSearch.textContent = 'Ничего не найдено'
+                catalog.append(failedSearch)
+            }
+        })
+        .catch((error) => console.error('Ошибка при загрузке данных:', error))
 }
