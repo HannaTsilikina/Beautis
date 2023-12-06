@@ -1,16 +1,37 @@
 let basketProducts = document.querySelector('.basket_products')
+const btnOrder = document.querySelector("#btn-order")
+btnOrder.setAttribute("disabled", true)
+btnOrder.classList.add("basket_btn-order_non")
+const btnClose = document.querySelector("#btn-close")
+
+
+
 
 function getBasketData() {
     fetch('http://localhost:3001/chosenProducts')
         .then((response) => response.json())
         .then((data) => {
             if (data.length > 0) {
+
+                btnOrder.removeAttribute("disabled")
+                btnOrder.classList.remove("basket_btn-order_non")
+                btnOrder.classList.add("basket_btn-order")
+
+                const totalDiv = document.querySelector('.total_container_main')
+                const total =
+                `<hr class="basket_line" />
+                <div class="total_container">
+                <div class="total_text">Итого</div>
+                <div class="total_sum">274$</div>
+                </div>`
+                totalDiv.insertAdjacentHTML('beforeend', total)
+
                 data.forEach((object) => {
                     createBasketProduct(object)
                 })
                 let btnClose = document.querySelectorAll('.close')
                 btnClose.forEach((button) => {
-                    button.onclick = function (e) {
+                    button.addEventListener('click', function (e) {
                         let buttonToDeleteProduct = e.target
                         let div =
                             buttonToDeleteProduct.closest('.basket_products')
@@ -30,18 +51,17 @@ function getBasketData() {
                                     .catch((err) => console.log(err))
                                 basketProducts.removeChild(div)
                                 if (
-                                    document.querySelectorAll('.item').length ==
-                                    0
+                                    document.querySelectorAll('.item').length ==0
                                 ) {
-                                    const div = document.createElement('div')
-                                    div.classList.add('basket_no-products')
-                                    const el = document.createElement('div')
-                                    el.textContent = 'В корзине нет товаров'
-                                    basketProducts.append(el)
+                                    const a = document.createElement('div')
+                                    a.textContent = 'В корзине нет товаров'
+                                    const basket_no_product = document.querySelector(".basket_no-products")
+                                    basket_no_product.append(a)
+                                    console.log(a)
                                 }
                             }
                         })
-                    }
+                    })
                 })
             }
         })
@@ -56,7 +76,7 @@ function createBasketProduct(obj) {
     div.classList.add('item')
     div.classList.add('basket_products')
     div.setAttribute('id', `${obj.id}`)
-    const el = `
+    const elem = `
                 <div class="basket_products__container">
                 <div class="basket_div__imgAndname">
                 <img src="${image}" class="basket_div__img">
@@ -75,7 +95,7 @@ function createBasketProduct(obj) {
                 </div>
                 </div>
                 <div><hr class="basket_line__gray" /></div>`
-    div.insertAdjacentHTML('beforeend', el)
+    div.insertAdjacentHTML('beforeend', elem)
     basketProducts.appendChild(div)
 
     const minusButtons = document.querySelectorAll('.basket_minus-btn')
@@ -137,7 +157,9 @@ function createBasketProduct(obj) {
                 })
         }
     })
+
 }
 document.addEventListener('DOMContentLoaded', () => {
     getBasketData()
 })
+

@@ -123,16 +123,6 @@
   ],
   "chosenProducts": [
     {
-      "id": "1",
-      "brand": "Davines",
-      "name": "Масло для волос Davines OI Oil",
-      "size": "50 мл",
-      "ranking": "4",
-      "price": "50$",
-      "discount": "40%",
-      "image": "./images/1.jpeg"
-    },
-    {
       "id": "2",
       "brand": "Davines",
       "name": "Кондиционер для волос Davines OI CONDITIONER",
@@ -143,14 +133,24 @@
       "image": "./images/2.jpeg"
     },
     {
-      "id": "6",
+      "id": "4",
+      "brand": "Davines",
+      "name": "Сыворотка для волос Davines OI Oil Absolute COLOUR GLOSS",
+      "size": "15 мл",
+      "ranking": "4",
+      "price": "10$",
+      "discount": "20%",
+      "image": "./images/4.jpeg"
+    },
+    {
+      "id": "7",
       "brand": "TIGI",
-      "name": "Шампунь для окрашенных волос TIGI Colour Goddess",
-      "size": "400 мл",
-      "ranking": "2",
-      "price": "18$",
+      "name": "Гель мусс для волос TIGI Foxy Curls",
+      "size": "250 мл",
+      "ranking": "5",
+      "price": "40$",
       "discount": "0%",
-      "image": "./images/6.jpeg"
+      "image": "./images/7.png"
     }
   ],
   "orders": []
