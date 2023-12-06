@@ -1,3 +1,20 @@
+// //fetch('http://localhost:3001/products')
+//   .then((res) => {
+//     console.log(res);
+//   });// получить данные
+
+//   let priceOne = document.getElementById('submitall');
+
+//   priceOne.addEventListener('click', getPrice);
+
+//   function getPrice() {
+//     let input_price1 = document.getElementById('input_price1').value;
+//     console.log(input_price1);
+//   } //получить инпуты
+
+//   let priceMax = getPrice();//ввести переменные
+
+
 // Создание каталога
 
 // const { response } = require('express')
