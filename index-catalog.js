@@ -103,29 +103,30 @@ function newPost(obj) {
         oldPriceContainer.classList.add('hidden')
     }
     const buttonBuy = document.createElement('button')
-
-    buttonBuy.classList.add('hidden')
+    buttonBuy.classList.add('button-to-card')
+    buttonBuy.classList.add('hidden-button')
     buttonBuy.textContent = ' Купить '
     card.append(buttonBuy)
     buttonBuy.onmouseover = function transit() {
         buttonBuy.classList.add('transition')
     }
 
-    const buttonBuyInOneClick = document.createElement('button')
-    buttonBuyInOneClick.classList.add('button-buy-one')
-    buttonBuyInOneClick.classList.add('hidden')
-    buttonBuyInOneClick.textContent = ' Купить в 1 клик'
+    // const buttonBuyInOneClick = document.createElement('button')
+    // buttonBuyInOneClick.classList.add('button-buy-one')
+    // buttonBuyInOneClick.classList.add('hidden')
+    // buttonBuyInOneClick.textContent = ' Купить в 1 клик'
 
-    card.append(buttonBuyInOneClick)
+    // card.append(buttonBuyInOneClick)
+
     card.onmouseover = function () {
-        buttonBuy.classList.remove('hidden')
-        buttonBuyInOneClick.classList.remove('hidden')
+        buttonBuy.classList.remove('hidden-button')
+        // buttonBuyInOneClick.classList.remove('hidden')
         card.classList.add('emphasized-card')
         buttonBuy.classList.add('button-buy')
     }
     card.onmouseout = function () {
-        buttonBuy.classList.add('hidden')
-        buttonBuyInOneClick.classList.add('hidden')
+        buttonBuy.classList.add('hidden-button')
+        // buttonBuyInOneClick.classList.add('hidden')
         card.classList.remove('emphasized-card')
         buttonBuy.classList.remove('button-buy')
     }
