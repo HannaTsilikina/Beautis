@@ -118,6 +118,16 @@ main {
     justify-content: center;
     box-sizing: border-box;
     padding: 70px 0;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  @media (width > 1300px) {
+    main {
+
+      max-width: 1440px;
+      margin: 0 auto;
+    }
   }
 
   .filters {
