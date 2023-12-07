@@ -103,7 +103,7 @@ function getData() {
 
 // const { response } = require('express')
 
-fetch('http://localhost:3001/prgoducts', {
+fetch('http://localhost:3001/products', {
     method: 'GET',
     headers: {
         'Content-type': 'application/json, charset=UTF-8',
