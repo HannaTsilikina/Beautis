@@ -56,6 +56,13 @@ function getBasketData() {
                                     })
                                     .catch((err) => console.log(err))
                                 basketProducts.removeChild(div)
+                                // if (data.length == 0) {
+                                //     console.log(data)
+                                //     const basketNoProducts =
+                                //         document.querySelector('#no-products')
+                                //     basketNoProducts.textContent =
+                                //         'В корзине нет товаров'
+                                // }
 
                                 let total = document.querySelector('.total_sum')
                                 let prices =
@@ -65,21 +72,25 @@ function getBasketData() {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
                                 })
-                                // if (
-                                //     document.querySelectorAll('.item').length ==
-                                //     0
-                                // ) {
-                                //     // let div = document.createElement('div')
-                                //     // div.classList.add('basket_no-products')
-                                //     // let el = document.createElement('div')
-                                //     // el.classList.add('no-products')
-                                //     // el.textContent = 'В корзине нет товаров'
-                                //     // basketProducts.append(el)
-                                // }
+                                if (
+                                    document.querySelectorAll('.item').length ==
+                                    0
+                                ) {
+                                    let div = document.createElement('div')
+                                    div.classList.add('basket_no-products')
+                                    let el = document.createElement('div')
+                                    el.classList.add('no-products')
+                                    el.textContent = 'В корзине нет товаров'
+                                    basketProducts.append(el)
+                                }
                             }
                         })
                     }
                 })
+            } else {
+                const basketNoProducts = document.querySelector('#no-products')
+                basketNoProducts.textContent = 'В корзине нет товаров'
+                basketNoProducts.classList.add('red')
             }
         })
         .catch((error) => console.log('Ошибка:', error))
