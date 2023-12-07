@@ -65,17 +65,17 @@ function getBasketData() {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
                                 })
-                                // if (
-                                //     document.querySelectorAll('.item').length ==
-                                //     0
-                                // ) {
-                                //     // let div = document.createElement('div')
-                                //     // div.classList.add('basket_no-products')
-                                //     // let el = document.createElement('div')
-                                //     // el.classList.add('no-products')
-                                //     // el.textContent = 'В корзине нет товаров'
-                                //     // basketProducts.append(el)
-                                // }
+                                if (
+                                    document.querySelectorAll('.item').length ==
+                                    0
+                                ) {
+                                    let div = document.createElement('div')
+                                    div.classList.add('basket_no-products')
+                                    let el = document.createElement('div')
+                                    el.classList.add('no-products')
+                                    el.textContent = 'В корзине нет товаров'
+                                    basketProducts.append(el)
+                                }
                             }
                         })
                     }
