@@ -87,14 +87,13 @@ function getData() {
             while (mainDiv.firstChild) {
                 mainDiv.removeChild(mainDiv.lastChild)
             }
-            if (filterProducts.length > 0) {
-                filteredResult.forEach((element) => newPost(element))
-                document.querySelectorAll('.button-to-card').forEach((elem) => {
-                    elem.onclick = function (evt) {
-                        toBasket(evt, filteredResult)
-                    }
-                })
-            }
+
+            filteredResult.forEach((element) => newPost(element))
+            document.querySelectorAll('.button-to-card').forEach((elem) => {
+                elem.onclick = function (evt) {
+                    toBasket(evt, filteredResult)
+                }
+            })
         })
         .catch((err) => {
             const failedFilter = document.createElement('span')
