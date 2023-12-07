@@ -1,7 +1,83 @@
+let mainDiv = document.querySelector('.catalog')
+
+  //создать массив объектов на базе json
+  let submitall = document.getElementById('submitall'); // обработчик событий на кнопку, тут надо чето добавить чтобы дефолтные значения не считались?
+
+submitall.addEventListener('click', getData);
+
+
+
+function getData() {
+
+  let input_pricemin = parseInt(document.getElementById('input_pricemin').value);
+  console.log(input_pricemin);
+  let input_pricemax = parseInt(document.getElementById('input_pricemax').value);
+  console.log(input_pricemax);
+  // let davinescheckbox = document.getElementsById('davineschekbox').value;
+  // console.log(davinescheckbox);
+  // let tigicheckbox = document.getElementsById('tigichekbox').value;
+  // console.log(tigicheckbox);
+  // let morgancheckbox = document.getElementsById('morganchekbox').value;
+  // console.log(morgancheckbox);
+  let input_ratemin = parseInt(document.getElementById('input_ratemin').value);
+  console.log(input_ratemin);
+  let input_ratemax = parseInt(document.getElementById('input_ratemax').value);
+  console.log(input_ratemax);
+  fetch ('http://localhost:3001/products', {
+method: 'GET'})
+ .then((res) => {
+
+    return res.json();
+  })
+  .then((data) => {
+    const jsonArray = Array.from(data);
+
+    let filteredResult = [...jsonArray]
+
+
+    if (!isNaN(input_pricemax) && !isNaN(input_pricemin)) {
+
+filteredResult = filteredResult.filter((value)=>(parseInt(value.price)>=input_pricemin) && (parseInt(value.price)<=input_pricemax))
+
+    }
+    if (isNaN(input_pricemax) && !isNaN(input_pricemin)) {
+      filteredResult = filteredResult.filter((value)=>parseInt(value.price)>=input_pricemin)
+    }
+    if (!isNaN(input_pricemax) && isNaN(input_pricemin)) {
+      filteredResult = filteredResult.filter((value)=>parseInt(value.price)<=input_pricemax)
+    }
+    if (!isNaN(input_ratemax) && !isNaN(input_ratemin)) {
+      filteredResult = filteredResult.filter((value)=>(parseInt(value.ranking)>=input_ratemin) && (parseInt(value.ranking)<=input_ratemax))
+
+    }
+    if (isNaN(input_ratemax) && !isNaN(input_ratemin)) {
+      filteredResult = filteredResult.filter((value)=>parseInt(value.ranking)>=input_ratemin)
+    }
+    if (!isNaN(input_ratemax) && isNaN(input_ratemin)) {
+      filteredResult = filteredResult.filter((value)=>parseInt(value.ranking)<=input_ratemax)
+    }
+
+    while (mainDiv.firstChild) {
+      mainDiv.removeChild(mainDiv.lastChild);
+    }
+    filteredResult.forEach((element) => newPost(element));
+    document.querySelectorAll('.button-to-card').forEach((elem) => {
+      elem.onclick = function (evt) {
+        toBasket(evt, filteredResult);
+    }
+  })
+  })
+  .catch((err) => {
+    console.log('Ошибка. Запрос не выполнен: ', err);
+  });
+
+} //получить инпуты
+
+
 // Создание каталога
 
 // const { response } = require('express')
-let mainDiv = document.querySelector('.catalog')
+
 
 fetch('http://localhost:3001/products', {
     method: 'GET',
@@ -13,35 +89,9 @@ fetch('http://localhost:3001/products', {
     .then((data) => {
         data.forEach((element) => newPost(element))
         document.querySelectorAll('.button-to-card').forEach((elem) => {
-            elem.onclick = function (evt) {
-                let targetbutton = evt.target
-                let card = targetbutton.closest('.card')
-                card.classList.add('active')
-                data.forEach((element) => {
-                    if (card.id == element.id) {
-                        fetch('http://localhost:3001/chosenProducts', {
-                            method: 'POST',
-                            body: JSON.stringify({
-                                id: element.id,
-                                brand: element.brand,
-                                name: element.name,
-                                size: element.size,
-                                ranking: element.ranking,
-                                price: element.price,
-                                discount: element.discount,
-                                image: element.image,
-                            }),
-                            headers: {
-                                'Content-type': 'application/json',
-                            },
-                        })
-                            .then((response) => {
-                                console.log(response)
-                            })
-                            .catch((err) => console.log(err.message))
-                    }
-                })
-            }
+          elem.onclick = function (evt) {
+            toBasket(evt, data);
+        }
         })
     })
     .catch((errorToFetch) => {
@@ -51,7 +101,35 @@ fetch('http://localhost:3001/products', {
             errorToFetch.name +
             ' Произодится работа на сервере. Просим прощения за причиненные неудобства!'
     })
-
+function toBasket (evt, data) {
+      let targetbutton = evt.target
+      let card = targetbutton.closest('.card')
+      card.classList.add('active')
+      data.forEach((element) => {
+          if (card.id == element.id) {
+              fetch('http://localhost:3001/chosenProducts', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                      id: element.id,
+                      brand: element.brand,
+                      name: element.name,
+                      size: element.size,
+                      ranking: element.ranking,
+                      price: element.price,
+                      discount: element.discount,
+                      image: element.image,
+                  }),
+                  headers: {
+                      'Content-type': 'application/json',
+                  },
+              })
+                  .then((response) => {
+                      console.log(response)
+                  })
+                  .catch((err) => console.log(err.message))
+          }
+      })
+  }
 function newPost(obj) {
     const card = document.createElement('div')
     card.classList.add('card')
