@@ -4,7 +4,6 @@ btnOrder.setAttribute('disabled', true)
 btnOrder.classList.add('basket_btn-order_non')
 const btnClose = document.querySelector('#btn-close')
 const basketNoProducts = document.querySelector('#no-products')
-basketNoProducts.textContent = 'В корзине нет товаров'
 
 function getBasketData() {
     fetch('http://localhost:3001/chosenProducts')
@@ -83,6 +82,8 @@ function getBasketData() {
                                             '.total_container'
                                         )
                                     priceDiv.remove()
+                                    basketNoProducts.textContent =
+                                        'В корзине нет товаров'
                                 }
 
                                 let total = document.querySelector('.total_sum')
