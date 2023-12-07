@@ -1,35 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Lato:wght@400;700;900&family=Manrope:wght@400;700&display=swap');
 
-@media (width >= 1000px) {
-    /*HEADER*/
-    .header_logo,
-    .footer_logo {
-        padding: 20px;
-    }
+@media (width <800px) {
+  body {
+      font-weight: 400;
+      font-size: 12px;
+      font-family: 'Manrope', sans-serif;
+      line-height: 20px;
+      letter-spacing: 0.48px;
+  }
+  a {
+      color: white;
+      text-decoration: none;
+  }
 
-    .lines {
-        height: 50px;
-    }
 
-    .header_block {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+  /* header */
+  .header_logo,
+  .footer_logo {
+      padding: 15px;
+  }
 
-    .lines::before,
-    .lines::after {
-        display: inline-block;
-        width: 100%;
-        border: 1px solid black;
-        content: '';
-    }
 
-    .header_search,
-    .header_basket,
-    .img_search {
-        display: none;
-    }
+  @media (width< 600px) {
+      .header_logo,
+      .footer_logo {
+          padding: 10px;
+      }
+
+
+      .header_logo > a > img,
+      .footer_logo > img {
+          width: 350px;
+      }
+  }
+  .lines {
+      height: 50px;
+  }
+
+
+  .header_block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+
+  .lines::before {
+      display: inline-block;
+      width: 100%;
+      border: 1px solid black;
+      content: '';
+  }
+
+
+  .header_search,
+  .header_basket,
+  .img_search {
+      display: none;
+  }
 }
 
 /*MAIN*/
