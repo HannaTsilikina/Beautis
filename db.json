@@ -121,38 +121,7 @@
       "id": "12"
     }
   ],
-  "chosenProducts": [
-    {
-      "id": "2",
-      "brand": "Davines",
-      "name": "Кондиционер для волос Davines OI CONDITIONER",
-      "size": "150 мл",
-      "ranking": "5",
-      "price": "25$",
-      "discount": "0%",
-      "image": "./images/2.jpeg"
-    },
-    {
-      "id": "3",
-      "brand": "Davines",
-      "name": "Баттер для волос Davines OI HAIR BUTTER",
-      "size": "250 мл",
-      "ranking": "5",
-      "price": "40$",
-      "discount": "0%",
-      "image": "./images/3.jpeg"
-    },
-    {
-      "id": "6",
-      "brand": "TIGI",
-      "name": "Шампунь для окрашенных волос TIGI Colour Goddess",
-      "size": "400 мл",
-      "ranking": "2",
-      "price": "18$",
-      "discount": "0%",
-      "image": "./images/6.jpeg"
-    }
-  ],
+  "chosenProducts": [],
   "orders": [],
   "order-details": [
     {

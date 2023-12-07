@@ -3,12 +3,16 @@ const btnOrder = document.querySelector('#btn-order')
 btnOrder.setAttribute('disabled', true)
 btnOrder.classList.add('basket_btn-order_non')
 const btnClose = document.querySelector('#btn-close')
+const basketNoProducts = document.querySelector('#no-products')
+basketNoProducts.textContent = 'В корзине нет товаров'
 
 function getBasketData() {
     fetch('http://localhost:3001/chosenProducts')
         .then((response) => response.json())
         .then((data) => {
             if (data.length > 0) {
+                basketNoProducts.classList.remove('basket_no-products')
+                basketNoProducts.classList.add('basket_no-products_none')
                 btnOrder.removeAttribute('disabled')
                 btnOrder.classList.remove('basket_btn-order_non')
                 btnOrder.classList.add('basket_btn-order')
@@ -61,17 +65,17 @@ function getBasketData() {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
                                 })
-                                if (
-                                    document.querySelectorAll('.item').length ==
-                                    0
-                                ) {
-                                    const div = document.createElement('div')
-                                    div.classList.add('basket_no-products')
-                                    const el = document.createElement('div')
-                                    el.classList.add('no-products')
-                                    el.textContent = 'В корзине нет товаров'
-                                    basketProducts.append(el)
-                                }
+                                // if (
+                                //     document.querySelectorAll('.item').length ==
+                                //     0
+                                // ) {
+                                //     // let div = document.createElement('div')
+                                //     // div.classList.add('basket_no-products')
+                                //     // let el = document.createElement('div')
+                                //     // el.classList.add('no-products')
+                                //     // el.textContent = 'В корзине нет товаров'
+                                //     // basketProducts.append(el)
+                                // }
                             }
                         })
                     }
@@ -92,7 +96,7 @@ function createBasketProduct(obj) {
     const el = `
                 <div class="basket_products__container">
                 <div class="basket_div__imgAndname">
-                <img src="${image}" class="basket_div__img">
+                <div class="basket_div__img___div"><img src="${image}" class="basket_div__img"></div>
                 <div class="basket_div__nameplusminus">
                 <div class="basket_products__name">${name}</div>
                   <div class="basket_quantity">
