@@ -15,18 +15,38 @@
     />
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="header_logo container">
+
+          <a href="./index-catalog.html"
+          ><img src="./Images/Beautis-Logo.png" alt="Beautis-Logo"
+          /></a>
+      </div>
+      <div class="lines">
+          <div class="header_block container">
+              <img src="./Images/Search.png" alt="search" class="img_search"/>
+              <input
+                  type="search"
+                  placeholder="Поиск"
+                  class="header_search"
+              />
+              <a href="./index-basket.html" class="header_basket"
+                  >Корзина <img src="./Images/Cart.png" alt="basket"
+              /></a>
+          </div>
+      </div>
+  </header>
     <main>
       <div class="basket_container">
         <div class="basket">КОРЗИНА</div>
         <div><hr class="basket_line" /></div>
-        <!--<div class="basket_no-products" id="no-products">В корзине нет товара</div>-->
+        <div class="basket_no-products" id="no-products"></div>
         <div class="basket_products"></div>
 
-        <div class="product-deleted">
-          <!--<div class="product-deleted_text">Товар Удален</div>
-          <div class="product-deleted_text">Кондиционер для волос Davines Oi Conditioner</div>-->
-        </div>
+        <!--<div class="product-deleted">
+          <div class="product-deleted_text">Товар Удален</div>
+          <div class="product-deleted_text">Кондиционер для волос Davines Oi Conditioner</div>
+        </div>-->
 
         <div class="total_container_main">
          <!--<hr class="basket_line" />
@@ -37,14 +57,66 @@
         </div>
 
          <div class="basket_btn__container">
-          <button class="basket_btn-close" id="btn-close">Закрыть</button>
-          <button class="basket_btn-order" id="btn-order">Оформить заказ</button>
+          <button class="basket_btn-close" id="btn-close" onclick="window.location.href = './index-catalog.html'" >Закрыть</button>
+          <button id="btn-order" onclick="window.location.href = './index-forms.html'">Оформить заказ</button>
         </div>
 
       </div>
     </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="footer_logo container">
+          <img
+              src="./Images/Beautis-Logo-footer.png"
+              alt="Beautis-Logo"
+          />
+      </div>
+      <div class="footer_blocks container">
+          <div class="blocks">
+              <div class="footer_block-info">
+                  <h3>Информация</h3>
+                  <a href="#!">Договор оферты</a>
+                  <a href="#!">Обмен и возврат</a>
+                  <a href="#!">Оплата и доставка</a>
+                  <div class="footer_cards">
+                      <img src="./Images/Visa.png" alt="visa" /><img
+                          src="./Images/Master.png"
+                          alt="master-card"
+                      />
+                  </div>
+              </div>
+              <div class="footer_block-company">
+                  <h3>Компания</h3>
+                  <a href="#!">О проекте</a>
+                  <a href="#!">Сотрудничество</a>
+              </div>
+          </div>
+          <div class="blocks">
+              <div class="footer_block-contact">
+                  <a href="tel:(+380) 99 154-69-17">+380 99 154-69-17</a>
+                  <p class="solid">
+                      Пн — пт <br />
+                      с 10:00 до 18:00
+                  </p>
+                  <a href="mailto:info@beautis.com.ua"
+                      >info@beautis.com.ua</a
+                  >
+                  <p>Украина, Харьков, <br />пл. Конституции, 26</p>
+              </div>
+          </div>
+          <div class="footer_icons">
+              <a href="#!" class="footer_icons-inst"
+                  ><img src="./Images/Insta.png" />Инстаграм</a
+              >
+              <a href="#!" class="footer_icons-faceb"
+                  ><img src="./Images/Facebook.png" />Фейсбук</a
+              >
+          </div>
+      </div>
+      <div class="footer_ container">
+          © Интернет-магазин Beautis. 2017—2020
+      </div>
+  </footer>
     <script src="./index-basket.js"></script>
   </body>
 </html>
