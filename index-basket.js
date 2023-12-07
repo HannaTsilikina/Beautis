@@ -4,7 +4,8 @@ btnOrder.setAttribute('disabled', true)
 btnOrder.classList.add('basket_btn-order_non')
 const btnClose = document.querySelector('#btn-close')
 const basketNoProducts = document.querySelector('#no-products')
-basketNoProducts.textContent = 'В корзине нет товаров'
+
+let sum = 0
 
 function getBasketData() {
     fetch('http://localhost:3001/chosenProducts')
@@ -35,12 +36,15 @@ function getBasketData() {
                         total.textContent = `${sum}$ `
                     })
                 })
+                let exportSum = document.querySelector('.total_sum').innerHTML
+
                 let btnClose = document.querySelectorAll('.close')
                 btnClose.forEach((button) => {
                     button.onclick = function (e) {
                         let buttonToDeleteProduct = e.target
                         let div =
                             buttonToDeleteProduct.closest('.basket_products')
+
                         data.forEach((element) => {
                             if (div.id == element.id) {
                                 fetch(
@@ -57,6 +61,35 @@ function getBasketData() {
                                     .catch((err) => console.log(err))
                                 basketProducts.removeChild(div)
 
+                                if (
+                                    document.querySelectorAll('.item').length ==
+                                    0
+                                ) {
+                                    basketNoProducts.classList.add(
+                                        'basket_no-products'
+                                    )
+                                    basketNoProducts.classList.remove(
+                                        'basket_no-products_none'
+                                    )
+
+                                    btnOrder.setAttribute('disabled', true)
+
+                                    btnOrder.classList.add(
+                                        'basket_btn-order_non'
+                                    )
+                                    btnOrder.classList.remove(
+                                        'basket_btn-order'
+                                    )
+                                    basketNoProducts.classList.add('red')
+                                    const priceDiv =
+                                        document.querySelector(
+                                            '.total_container'
+                                        )
+                                    priceDiv.remove()
+                                    basketNoProducts.textContent =
+                                        'В корзине нет товаров'
+                                }
+
                                 let total = document.querySelector('.total_sum')
                                 let prices =
                                     document.querySelectorAll('.basket_price')
@@ -64,22 +97,16 @@ function getBasketData() {
                                 pricesValues = prices.forEach((el) => {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
+                                    let exportSum = `${sum}$ `
                                 })
-                                // if (
-                                //     document.querySelectorAll('.item').length ==
-                                //     0
-                                // ) {
-                                //     // let div = document.createElement('div')
-                                //     // div.classList.add('basket_no-products')
-                                //     // let el = document.createElement('div')
-                                //     // el.classList.add('no-products')
-                                //     // el.textContent = 'В корзине нет товаров'
-                                //     // basketProducts.append(el)
-                                // }
                             }
                         })
                     }
                 })
+            } else {
+                const basketNoProducts = document.querySelector('#no-products')
+                basketNoProducts.textContent = 'В корзине нет товаров'
+                basketNoProducts.classList.add('red')
             }
         })
         .catch((error) => console.log('Ошибка:', error))
@@ -87,7 +114,10 @@ function getBasketData() {
 
 function createBasketProduct(obj) {
     const name = obj.name
-    const price = obj.price
+    let priceNum =
+        parseInt(obj.price) -
+        (parseInt(obj.discount) / 100) * parseInt(obj.price)
+    const price = `${priceNum}$`
     const image = obj.image
     const div = document.createElement('div')
     div.classList.add('item')
@@ -143,6 +173,8 @@ function createBasketProduct(obj) {
                                 pricesValues = prices.forEach((el) => {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
+                                    let exportSum = `${sum}$ `
+                                    console.log(exportSum)
                                 })
                             }
                         })
@@ -177,10 +209,11 @@ function createBasketProduct(obj) {
                             let total = document.querySelector('.total_sum')
                             let prices =
                                 document.querySelectorAll('.basket_price')
-                            let sum = 0
+
                             pricesValues = prices.forEach((el) => {
                                 sum = sum + parseInt(el.textContent)
                                 total.textContent = `${sum}$ `
+                                let exportSum = `${sum}$ `
                             })
                         }
                     })
@@ -194,3 +227,5 @@ function createBasketProduct(obj) {
 document.addEventListener('DOMContentLoaded', () => {
     getBasketData()
 })
+
+// export default '*'
