@@ -138,7 +138,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ea7d83;
 }
 .basket_no-products_none {
     display: none;
@@ -148,6 +147,13 @@ main {
     max-width: 240px;
     max-height: 240px;
 }
+.basket_div__img___div {
+    display: flex;
+    width: 240px;
+    height: 240px;
+    justify-content: center;
+}
+
 .basket__img {
     width: auto;
     height: 100%;
@@ -248,6 +254,12 @@ main {
     background-color: white;
     border-radius: 25px;
 }
+.basket_input {
+    width: 40px;
+    text-align: center;
+    border: none;
+}
+
 /*FOOTER*/
 
 footer {
