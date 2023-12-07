@@ -1,112 +1,112 @@
-let name = document.querySelector('.name');
-let surname = document.querySelector('.surname');
-let email = document.querySelector('.email');
-let formName = document.querySelector('.formName');
-let formSurname = document.querySelector('.formSurname');
-let formEmail = document.querySelector('.formEmail');
-let finalButton = document.querySelector('.btn-2');
+// import './index-basket'
 
-let deliveryInfo = document.querySelector('.deliverySelect');
-let cityInfo = document.querySelector('#cities');
-let streetInfo = document.querySelector('.street');
-let paymentInfo = document.querySelector('.payment');
-let comments = document.querySelector('.comments');
+let name = document.querySelector('.name')
+let surname = document.querySelector('.surname')
+let email = document.querySelector('.email')
+let formName = document.querySelector('.formName')
+let formSurname = document.querySelector('.formSurname')
+let formEmail = document.querySelector('.formEmail')
+let finalButton = document.querySelector('.btn-2')
 
-let finalPrice = document.querySelector('#finalPrice');
-finalPrice.textContent = 'XXX' +'$' //сюда добавить финальную цену
+let deliveryInfo = document.querySelector('.deliverySelect')
+let cityInfo = document.querySelector('#cities')
+let streetInfo = document.querySelector('.street')
+let paymentInfo = document.querySelector('.payment')
+let comments = document.querySelector('.comments')
+
+let finalPrice = document.querySelector('#finalPrice')
+finalPrice.textContent = 'XXX' + '$' //сюда добавить финальную цену
 
 //появление и удаление доп инпута с улицей и домом в зависимости от выбора доставки до двери и самовывоза, соответственно
-let hide = document.querySelector('.formStreet');
-let select = document.querySelector('.deliverySelect');
-function openHide () {
+let hide = document.querySelector('.formStreet')
+let select = document.querySelector('.deliverySelect')
+function openHide() {
     if (select.value === 'getByMyself') {
-    hide.classList.add('hide');
-    }
-    else hide.classList.remove('hide');
-};
+        hide.classList.add('hide')
+    } else hide.classList.remove('hide')
+}
 
 //передача массива столиц в выпадающий список
 const citiesList = [
-'Амстердам',
-'Андорра-ла-Велья',
-'Афины',
-'Белград',
-'Берлин',
-'Берн',
-'Братислава',
-'Брюссель',
-'Будапешт',
-'Бухарест',
-'Вадуц',
-'Валлетта',
-'Варшава',
-'Ватикан',
-'Вена',
-'Вильнюс',
-'Дублин',
-'Загреб',
-'Киев',
-'Кишинёв',
-'Копенгаген',
-'Лиссабон',
-'Лондон',
-'Любляна',
-'Люксембург',
-'Мадрид',
-'Минск',
-'Монако',
-'Москва',
-'Осло',
-'Париж',
-'Подгорица',
-'Прага',
-'Рейкьявик',
-'Рига',
-'Рим',
-'Сан-Марино',
-'Сараево',
-'Скопье',
-'София',
-'Стокгольм',
-'Таллин',
-'Тирана',
-'Хельсинки',
-'Приштина',
-'Тирасполь'
-];
+    'Амстердам',
+    'Андорра-ла-Велья',
+    'Афины',
+    'Белград',
+    'Берлин',
+    'Берн',
+    'Братислава',
+    'Брюссель',
+    'Будапешт',
+    'Бухарест',
+    'Вадуц',
+    'Валлетта',
+    'Варшава',
+    'Ватикан',
+    'Вена',
+    'Вильнюс',
+    'Дублин',
+    'Загреб',
+    'Киев',
+    'Кишинёв',
+    'Копенгаген',
+    'Лиссабон',
+    'Лондон',
+    'Любляна',
+    'Люксембург',
+    'Мадрид',
+    'Минск',
+    'Монако',
+    'Москва',
+    'Осло',
+    'Париж',
+    'Подгорица',
+    'Прага',
+    'Рейкьявик',
+    'Рига',
+    'Рим',
+    'Сан-Марино',
+    'Сараево',
+    'Скопье',
+    'София',
+    'Стокгольм',
+    'Таллин',
+    'Тирана',
+    'Хельсинки',
+    'Приштина',
+    'Тирасполь',
+]
 
-let citiesParent = document.querySelector('#cities');
-for (i = 0; i<citiesList.length; i++) {
-    let citiesChild = document.createElement('option');
-    citiesChild.textContent = citiesList[i];
-    citiesParent.append(citiesChild);
-};
+let citiesParent = document.querySelector('#cities')
+for (i = 0; i < citiesList.length; i++) {
+    let citiesChild = document.createElement('option')
+    citiesChild.textContent = citiesList[i]
+    citiesParent.append(citiesChild)
+}
 
 //Проверка полей и отправка данных в формах на сервер при нажатии кнопки ОФОРМИТЬ ЗАКАЗ
-finalButton.addEventListener('click', function checkAndSend () {
-  if (name.value == '' || surname.value == '' || email.value == '') {
-  comments.innerHTML = 'Заполните ВСЕ поля';
-  }
-   else {
-    let x = {
-      name: name.value,
-      surname: surname.value,
-      email: email.value,
-      delivery: deliveryInfo.value,
-      city: cityInfo.value,
-      address: streetInfo.value,
-      payment: paymentInfo.value
-      };
-    comments.innerHTML = '';
-    fetch ('http://localhost:3001/order-details', {
-      method: 'POST',
-      body: JSON.stringify(x),
-      headers: {'Content-type': 'application/json'},
-      })
-      .then((response) => {
-        console.log(response)});
+finalButton.addEventListener('click', function checkAndSend() {
+    if (name.value == '' || surname.value == '' || email.value == '') {
+        comments.innerHTML = 'Заполните ВСЕ поля'
+    } else {
+        let x = {
+            name: name.value,
+            surname: surname.value,
+            email: email.value,
+            delivery: deliveryInfo.value,
+            city: cityInfo.value,
+            address: streetInfo.value,
+            payment: paymentInfo.value,
+        }
+        comments.innerHTML = ''
+        fetch('http://localhost:3001/order-details', {
+            method: 'POST',
+            body: JSON.stringify(x),
+            headers: { 'Content-type': 'application/json' },
+        }).then((response) => {
+            console.log(response)
+        })
     }
-});
+})
 
 /*
 //работа с модулем Nodemailer
@@ -136,17 +136,4 @@ const mailer = message => {
 
 module.exports = mailer*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(exportSum)

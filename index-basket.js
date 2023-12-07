@@ -5,6 +5,8 @@ btnOrder.classList.add('basket_btn-order_non')
 const btnClose = document.querySelector('#btn-close')
 const basketNoProducts = document.querySelector('#no-products')
 
+let sum = 0
+
 function getBasketData() {
     fetch('http://localhost:3001/chosenProducts')
         .then((response) => response.json())
@@ -34,6 +36,8 @@ function getBasketData() {
                         total.textContent = `${sum}$ `
                     })
                 })
+                let exportSum = document.querySelector('.total_sum').innerHTML
+
                 let btnClose = document.querySelectorAll('.close')
                 btnClose.forEach((button) => {
                     button.onclick = function (e) {
@@ -93,18 +97,8 @@ function getBasketData() {
                                 pricesValues = prices.forEach((el) => {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
+                                    let exportSum = `${sum}$ `
                                 })
-                                // if (
-                                //     document.querySelectorAll('.item').length ==
-                                //     0
-                                // ) {
-                                //     let div = document.createElement('div')
-                                //     div.classList.add('basket_no-products')
-                                //     let el = document.createElement('div')
-                                //     el.classList.add('no-products')
-                                //     // el.textContent = 'В корзине нет товаров'
-                                //     basketProducts.append(el)
-                                // }
                             }
                         })
                     }
@@ -176,6 +170,8 @@ function createBasketProduct(obj) {
                                 pricesValues = prices.forEach((el) => {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
+                                    let exportSum = `${sum}$ `
+                                    console.log(exportSum)
                                 })
                             }
                         })
@@ -210,10 +206,11 @@ function createBasketProduct(obj) {
                             let total = document.querySelector('.total_sum')
                             let prices =
                                 document.querySelectorAll('.basket_price')
-                            let sum = 0
+
                             pricesValues = prices.forEach((el) => {
                                 sum = sum + parseInt(el.textContent)
                                 total.textContent = `${sum}$ `
+                                let exportSum = `${sum}$ `
                             })
                         }
                     })
@@ -227,3 +224,5 @@ function createBasketProduct(obj) {
 document.addEventListener('DOMContentLoaded', () => {
     getBasketData()
 })
+
+// export default '*'

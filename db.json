@@ -121,7 +121,38 @@
       "id": "12"
     }
   ],
-  "chosenProducts": [],
+  "chosenProducts": [
+    {
+      "id": "1",
+      "brand": "Davines",
+      "name": "Масло для волос Davines OI Oil",
+      "size": "50 мл",
+      "ranking": "4",
+      "price": "50$",
+      "discount": "40%",
+      "image": "./images/1.jpeg"
+    },
+    {
+      "id": "2",
+      "brand": "Davines",
+      "name": "Кондиционер для волос Davines OI CONDITIONER",
+      "size": "150 мл",
+      "ranking": "5",
+      "price": "25$",
+      "discount": "0%",
+      "image": "./images/2.jpeg"
+    },
+    {
+      "id": "3",
+      "brand": "Davines",
+      "name": "Баттер для волос Davines OI HAIR BUTTER",
+      "size": "250 мл",
+      "ranking": "5",
+      "price": "40$",
+      "discount": "0%",
+      "image": "./images/3.jpeg"
+    }
+  ],
   "orders": [],
   "order-details": [
     {
