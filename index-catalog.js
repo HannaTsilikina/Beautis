@@ -13,12 +13,19 @@ function getData() {
   console.log(input_pricemin);
   let input_pricemax = parseInt(document.getElementById('input_pricemax').value);
   console.log(input_pricemax);
-  // let davinescheckbox = document.getElementsById('davineschekbox').value;
-  // console.log(davinescheckbox);
-  // let tigicheckbox = document.getElementsById('tigichekbox').value;
-  // console.log(tigicheckbox);
-  // let morgancheckbox = document.getElementsById('morganchekbox').value;
-  // console.log(morgancheckbox);
+  let davinescheckbox = document.querySelector('#davineschekbox');
+
+  let tigicheckbox = document.querySelector('#tigichekbox');
+
+  let morganchekbox = document.querySelector('#morganchekbox');
+
+let Brands = [davinescheckbox, tigicheckbox, morganchekbox];//поместила в один массив все чекбоксы
+const brandFilter = Brands.filter((brand) => brand.checked);
+const brandFilterValue = brandFilter.map(function (brand) {
+  return brand.value;
+});
+console.log(brandFilterValue);
+
   let input_ratemin = parseInt(document.getElementById('input_ratemin').value);
   console.log(input_ratemin);
   let input_ratemax = parseInt(document.getElementById('input_ratemax').value);
