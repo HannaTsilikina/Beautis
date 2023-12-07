@@ -284,6 +284,13 @@ main {
         height: 173px;
     }
 
+    .footer_block-info > a:hover,
+    .footer_block-company > a:hover,
+    .footer_block-contact > a:hover,
+    .footer_icons > a:hover {
+        opacity: 0.5;
+    }
+
     .footer_block-info > h3,
     .footer_block-company > h3 {
         font-size: 14px;

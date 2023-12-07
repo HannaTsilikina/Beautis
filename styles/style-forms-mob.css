@@ -225,6 +225,13 @@ article {
         flex-direction: column;
     }
 
+    .footer_block-info > a:hover,
+    .footer_block-company > a:hover,
+    .footer_block-contact > a:hover,
+    .footer_icons > a:hover {
+        opacity: 0.5;
+    }
+
     .footer_block-info > h5,
     .footer_block-company > h5 {
         font-size: 14px;
