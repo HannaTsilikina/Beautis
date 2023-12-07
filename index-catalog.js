@@ -227,3 +227,52 @@ function drawRate(count, divToDraw) {
         }
     }
 }
+
+//попытка поиска
+
+const searchInput = document.querySelector('.header_search')
+const catalog = document.querySelector('.catalog')
+
+searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        performSearch()
+    } else {
+        delayedSearch()
+    }
+})
+
+let searchTimeout
+function delayedSearch() {
+    clearTimeout(searchTimeout)
+    searchTimeout = setTimeout(performSearch, 300)
+}
+
+function performSearch() {
+    fetch('http://localhost:3001/products')
+        .then((response) => response.json())
+        .then((data) => {
+            let trimSearch = searchInput.value.trim()
+            let search = trimSearch.toLowerCase()
+
+            // фильтрация товаров
+            let filterProducts = data.filter((product) => {
+                return (
+                    product.brand.toLowerCase().includes(search) ||
+                    product.name.toLowerCase().includes(search) ||
+                    product.size.toLowerCase().includes(search)
+                )
+            })
+
+            // отображения результатов поиска
+            if (filterProducts.length > 0) {
+                catalog.innerHTML = ''
+                filterProducts.forEach((el) => newPost(el))
+            } else {
+                catalog.innerHTML = ''
+                const failedSearch = document.createElement('h1')
+                failedSearch.textContent = 'Ничего не найдено'
+                catalog.append(failedSearch)
+            }
+        })
+        .catch((error) => console.error('Ошибка при загрузке данных:', error))
+}
