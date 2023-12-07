@@ -87,15 +87,20 @@ function getData() {
             while (mainDiv.firstChild) {
                 mainDiv.removeChild(mainDiv.lastChild)
             }
-            filteredResult.forEach((element) => newPost(element))
-            document.querySelectorAll('.button-to-card').forEach((elem) => {
-                elem.onclick = function (evt) {
-                    toBasket(evt, filteredResult)
-                }
-            })
+            if (filterProducts.length > 0) {
+                filteredResult.forEach((element) => newPost(element))
+                document.querySelectorAll('.button-to-card').forEach((elem) => {
+                    elem.onclick = function (evt) {
+                        toBasket(evt, filteredResult)
+                    }
+                })
+            }
         })
         .catch((err) => {
-            console.log('Ошибка. Запрос не выполнен: ', err)
+            const failedFilter = document.createElement('span')
+            failedFilter.classList.add('not-found')
+            failedFilter.textContent = 'Ничего не найдено'
+            catalog.append(failedFilter)
         })
 } //получить инпуты
 
@@ -120,9 +125,10 @@ fetch('http://localhost:3001/products', {
     })
     .catch((errorToFetch) => {
         document.querySelector('.filters').classList.add('hidden')
-        mainDiv.textContent =
-            'Ошибка: ' +
-            errorToFetch.name +
+        let errorText = document.createElement('div')
+        errorText.classList.add('catalog-err')
+        mainDiv.append(errorText)
+        errorText.textContent =
             ' Произодится работа на сервере. Просим прощения за причиненные неудобства!'
     })
 function toBasket(evt, data) {
@@ -292,10 +298,13 @@ function performSearch() {
             if (filterProducts.length > 0) {
                 filterProducts.forEach((el) => newPost(el))
             } else {
-                const failedSearch = document.createElement('h1')
+                const failedSearch = document.createElement('div')
+                failedSearch.classList.add('not-found')
                 failedSearch.textContent = 'Ничего не найдено'
                 catalog.append(failedSearch)
             }
         })
         .catch((error) => console.error('Ошибка при загрузке данных:', error))
 }
+moment.locale('ru')
+console.log(moment().format('LLL'))
