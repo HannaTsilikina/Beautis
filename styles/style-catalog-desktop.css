@@ -7,7 +7,20 @@
   grid-column: 1/4;
 }
 
-@media (width >= 800px) {
+.not-found {
+  text-align: center;
+  justify-self: center;
+  font-size: 32px;
+  grid-column: 1/4;
+}
+.catalog {
+  width: 100%;
+}
+main {
+  min-height: 250px;
+  margin: 0px 30px;
+}
+@media (width >= 600px) {
   body {
     margin: 10px;
     font-weight: 700;
@@ -109,10 +122,10 @@
 
   .filters {
     display: grid;
-    grid-template-rows: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 0.5fr);
     grid-template-columns: repeat(2, 1fr);
     width: 240px;
-    height: 30px;
+    height: 30%;
     margin: 20px;
     color: #000;
     font-weight: 600;

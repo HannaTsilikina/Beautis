@@ -87,15 +87,20 @@ function getData() {
             while (mainDiv.firstChild) {
                 mainDiv.removeChild(mainDiv.lastChild)
             }
-            filteredResult.forEach((element) => newPost(element))
-            document.querySelectorAll('.button-to-card').forEach((elem) => {
-                elem.onclick = function (evt) {
-                    toBasket(evt, filteredResult)
-                }
-            })
+            if (filterProducts.length > 0) {
+                filteredResult.forEach((element) => newPost(element))
+                document.querySelectorAll('.button-to-card').forEach((elem) => {
+                    elem.onclick = function (evt) {
+                        toBasket(evt, filteredResult)
+                    }
+                })
+            }
         })
         .catch((err) => {
-            console.log('Ошибка. Запрос не выполнен: ', err)
+            const failedFilter = document.createElement('span')
+            failedFilter.classList.add('not-found')
+            failedFilter.textContent = 'Ничего не найдено'
+            catalog.append(failedFilter)
         })
 } //получить инпуты
 
@@ -293,7 +298,8 @@ function performSearch() {
             if (filterProducts.length > 0) {
                 filterProducts.forEach((el) => newPost(el))
             } else {
-                const failedSearch = document.createElement('h1')
+                const failedSearch = document.createElement('div')
+                failedSearch.classList.add('not-found')
                 failedSearch.textContent = 'Ничего не найдено'
                 catalog.append(failedSearch)
             }
