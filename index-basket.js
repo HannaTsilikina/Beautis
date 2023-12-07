@@ -114,7 +114,10 @@ function getBasketData() {
 
 function createBasketProduct(obj) {
     const name = obj.name
-    const price = obj.price
+    let priceNum =
+        parseInt(obj.price) -
+        (parseInt(obj.discount) / 100) * parseInt(obj.price)
+    const price = `${priceNum}$`
     const image = obj.image
     const div = document.createElement('div')
     div.classList.add('item')
