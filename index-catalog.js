@@ -103,7 +103,7 @@ function getData() {
 
 // const { response } = require('express')
 
-fetch('http://localhost:3001/products', {
+fetch('http://localhost:3001/prgoducts', {
     method: 'GET',
     headers: {
         'Content-type': 'application/json, charset=UTF-8',
@@ -120,9 +120,10 @@ fetch('http://localhost:3001/products', {
     })
     .catch((errorToFetch) => {
         document.querySelector('.filters').classList.add('hidden')
-        mainDiv.textContent =
-            'Ошибка: ' +
-            errorToFetch.name +
+        let errorText = document.createElement('div')
+        errorText.classList.add('catalog-err')
+        mainDiv.append(errorText)
+        errorText.textContent =
             ' Произодится работа на сервере. Просим прощения за причиненные неудобства!'
     })
 function toBasket(evt, data) {
