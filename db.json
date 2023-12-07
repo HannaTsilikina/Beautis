@@ -123,24 +123,14 @@
   ],
   "chosenProducts": [
     {
-      "id": "2",
-      "brand": "Davines",
-      "name": "Кондиционер для волос Davines OI CONDITIONER",
-      "size": "150 мл",
+      "id": "8",
+      "brand": "TIGI",
+      "name": "Стик для волос TIGI Bed Head",
+      "size": "73 мл",
       "ranking": "5",
-      "price": "25$",
+      "price": "19$",
       "discount": "0%",
-      "image": "./images/2.jpeg"
-    },
-    {
-      "id": "1",
-      "brand": "Davines",
-      "name": "Масло для волос Davines OI Oil",
-      "size": "50 мл",
-      "ranking": "4",
-      "price": "50$",
-      "discount": "40%",
-      "image": "./images/1.jpeg"
+      "image": "./images/8.png"
     }
   ],
   "orders": [],

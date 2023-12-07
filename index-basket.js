@@ -56,6 +56,13 @@ function getBasketData() {
                                     })
                                     .catch((err) => console.log(err))
                                 basketProducts.removeChild(div)
+                                // if (data.length == 0) {
+                                //     console.log(data)
+                                //     const basketNoProducts =
+                                //         document.querySelector('#no-products')
+                                //     basketNoProducts.textContent =
+                                //         'В корзине нет товаров'
+                                // }
 
                                 let total = document.querySelector('.total_sum')
                                 let prices =
@@ -80,6 +87,10 @@ function getBasketData() {
                         })
                     }
                 })
+            } else {
+                const basketNoProducts = document.querySelector('#no-products')
+                basketNoProducts.textContent = 'В корзине нет товаров'
+                basketNoProducts.classList.add('red')
             }
         })
         .catch((error) => console.log('Ошибка:', error))
