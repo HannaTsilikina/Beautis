@@ -41,6 +41,7 @@ function getBasketData() {
                         let buttonToDeleteProduct = e.target
                         let div =
                             buttonToDeleteProduct.closest('.basket_products')
+
                         data.forEach((element) => {
                             if (div.id == element.id) {
                                 fetch(
@@ -56,13 +57,33 @@ function getBasketData() {
                                     })
                                     .catch((err) => console.log(err))
                                 basketProducts.removeChild(div)
-                                // if (data.length == 0) {
-                                //     console.log(data)
-                                //     const basketNoProducts =
-                                //         document.querySelector('#no-products')
-                                //     basketNoProducts.textContent =
-                                //         'В корзине нет товаров'
-                                // }
+
+                                if (
+                                    document.querySelectorAll('.item').length ==
+                                    0
+                                ) {
+                                    basketNoProducts.classList.add(
+                                        'basket_no-products'
+                                    )
+                                    basketNoProducts.classList.remove(
+                                        'basket_no-products_none'
+                                    )
+
+                                    btnOrder.setAttribute('disabled', true)
+
+                                    btnOrder.classList.add(
+                                        'basket_btn-order_non'
+                                    )
+                                    btnOrder.classList.remove(
+                                        'basket_btn-order'
+                                    )
+                                    basketNoProducts.classList.add('red')
+                                    const priceDiv =
+                                        document.querySelector(
+                                            '.total_container'
+                                        )
+                                    priceDiv.remove()
+                                }
 
                                 let total = document.querySelector('.total_sum')
                                 let prices =
@@ -72,17 +93,17 @@ function getBasketData() {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
                                 })
-                                if (
-                                    document.querySelectorAll('.item').length ==
-                                    0
-                                ) {
-                                    let div = document.createElement('div')
-                                    div.classList.add('basket_no-products')
-                                    let el = document.createElement('div')
-                                    el.classList.add('no-products')
-                                    el.textContent = 'В корзине нет товаров'
-                                    basketProducts.append(el)
-                                }
+                                // if (
+                                //     document.querySelectorAll('.item').length ==
+                                //     0
+                                // ) {
+                                //     let div = document.createElement('div')
+                                //     div.classList.add('basket_no-products')
+                                //     let el = document.createElement('div')
+                                //     el.classList.add('no-products')
+                                //     // el.textContent = 'В корзине нет товаров'
+                                //     basketProducts.append(el)
+                                // }
                             }
                         })
                     }

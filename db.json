@@ -121,18 +121,7 @@
       "id": "12"
     }
   ],
-  "chosenProducts": [
-    {
-      "id": "8",
-      "brand": "TIGI",
-      "name": "Стик для волос TIGI Bed Head",
-      "size": "73 мл",
-      "ranking": "5",
-      "price": "19$",
-      "discount": "0%",
-      "image": "./images/8.png"
-    }
-  ],
+  "chosenProducts": [],
   "orders": [],
   "order-details": [
     {
