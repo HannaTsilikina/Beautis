@@ -9,11 +9,11 @@ function getData() {
     let input_pricemin = parseInt(
         document.getElementById('input_pricemin').value
     )
-    console.log(input_pricemin)
+
     let input_pricemax = parseInt(
         document.getElementById('input_pricemax').value
     )
-    console.log(input_pricemax)
+
     let davinescheckbox = document.querySelector('#davineschekbox')
 
     let tigicheckbox = document.querySelector('#tigichekbox')
@@ -25,12 +25,10 @@ function getData() {
     const brandFilterValue = brandFilter.map(function (brand) {
         return brand.value
     })
-    console.log(brandFilterValue)
-
     let input_ratemin = parseInt(document.getElementById('input_ratemin').value)
-    console.log(input_ratemin)
+
     let input_ratemax = parseInt(document.getElementById('input_ratemax').value)
-    console.log(input_ratemax)
+
     fetch('http://localhost:3001/products', {
         method: 'GET',
     })
@@ -42,14 +40,13 @@ function getData() {
 
             let filteredResult = [...jsonArray]
             function priceWithDisc(obj) {
-              let newPriceVal =
-                  parseInt(obj.price) -
-                  (parseInt(obj.discount) / 100) * parseInt(obj.price)
-              const NewPrice = `${newPriceVal}$`
-              return NewPrice
-          }
+                let newPriceVal =
+                    parseInt(obj.price) -
+                    (parseInt(obj.discount) / 100) * parseInt(obj.price)
+                const NewPrice = `${newPriceVal}$`
+                return NewPrice
+            }
             if (!isNaN(input_pricemax) && !isNaN(input_pricemin)) {
-
                 filteredResult = filteredResult.filter(
                     (value) =>
                         parseInt(priceWithDisc(value)) >= input_pricemin &&
@@ -62,11 +59,9 @@ function getData() {
                 )
             }
             if (!isNaN(input_pricemax) && isNaN(input_pricemin)) {
-
                 filteredResult = filteredResult.filter(
                     (value) => parseInt(priceWithDisc(value)) <= input_pricemax
-                                    )
-
+                )
             }
             if (!isNaN(input_ratemax) && !isNaN(input_ratemin)) {
                 filteredResult = filteredResult.filter(
@@ -83,6 +78,60 @@ function getData() {
             if (!isNaN(input_ratemax) && isNaN(input_ratemin)) {
                 filteredResult = filteredResult.filter(
                     (value) => parseInt(value.ranking) <= input_ratemax
+                )
+            }
+
+            //тут чекбоксы
+
+            let davinesCheckbox = document.getElementById('davineschekbox')
+            let tigiCheckbox = document.getElementById('tigichekbox')
+            let morganCheckbox = document.getElementById('morganchekbox')
+
+            if (
+                davinesCheckbox.checked &&
+                tigiCheckbox.checked &&
+                morganCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == 'TIGI') return object
+                    if (object.brand == 'Davines') return object
+                    if (object.brand == "Morgan's") return object
+                })
+            }
+
+            if (morganCheckbox.checked && tigiCheckbox.checked) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == "Morgan's") return object
+                    if (object.brand == 'TIGI') return object
+                })
+            }
+            if (morganCheckbox.checked && davinesCheckbox.checked) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == 'Davines') return object
+                    if (object.brand == "Morgan's") return object
+                })
+            }
+            if (tigiCheckbox.checked && davinesCheckbox.checked) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == 'TIGI') return object
+                    if (object.brand == 'Davines') return object
+                })
+            }
+            if (davinesCheckbox.checked) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === 'Davines'
+                )
+            }
+
+            if (tigiCheckbox.checked) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === 'TIGI'
+                )
+            }
+
+            if (morganCheckbox.checked) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === "Morgan's"
                 )
             }
 
