@@ -88,50 +88,69 @@ function getData() {
             //тут чекбоксы
 
             if (
-                davinesCheckbox.checked &&
+                morganCheckbox.checked &&
                 tigiCheckbox.checked &&
-                morganCheckbox.checked
+                !davinesCheckbox.checked
             ) {
                 filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == "Morgan's") return object
                     if (object.brand == 'TIGI') return object
+                })
+            }
+
+            if (
+                morganCheckbox.checked &&
+                davinesCheckbox.checked &&
+                !tigiCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter((object) => {
                     if (object.brand == 'Davines') return object
                     if (object.brand == "Morgan's") return object
                 })
             }
 
-            if (morganCheckbox.checked && tigiCheckbox.checked) {
+            if (
+                tigiCheckbox.checked &&
+                davinesCheckbox.checked &&
+                !morganCheckbox.checked
+            ) {
                 filteredResult = filteredResult.filter((object) => {
-                    if (object.brand == "Morgan's") return object
-                    if (object.brand == 'TIGI') return object
+                    if (object.brand == 'TIGI') {
+                        return object
+                    }
+                    if (object.brand == 'Davines') {
+                        return object
+                    }
                 })
-            }
-            if (morganCheckbox.checked && davinesCheckbox.checked) {
-                filteredResult = filteredResult.filter((object) => {
-                    if (object.brand == 'Davines') return object
-                    if (object.brand == "Morgan's") return object
-                })
-            }
-            if (tigiCheckbox.checked && davinesCheckbox.checked) {
-                filteredResult = filteredResult.filter((object) => {
-                    if (object.brand == 'TIGI') return object
-                    if (object.brand == 'Davines') return object
-                })
-            }
-            if (davinesCheckbox.checked) {
-                filteredResult = filteredResult.filter(
-                    (object) => object.brand === 'Davines'
-                )
+                console.log(filteredResult)
             }
 
-            if (tigiCheckbox.checked) {
+            if (
+                tigiCheckbox.checked &&
+                !morganCheckbox.checked &&
+                !davinesCheckbox.checked
+            ) {
                 filteredResult = filteredResult.filter(
                     (object) => object.brand === 'TIGI'
                 )
             }
 
-            if (morganCheckbox.checked) {
+            if (
+                !tigiCheckbox.checked &&
+                morganCheckbox.checked &&
+                !davinesCheckbox.checked
+            ) {
                 filteredResult = filteredResult.filter(
                     (object) => object.brand === "Morgan's"
+                )
+            }
+            if (
+                !tigiCheckbox.checked &&
+                !morganCheckbox.checked &&
+                davinesCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === 'Davines'
                 )
             }
 
