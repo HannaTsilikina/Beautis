@@ -105,6 +105,8 @@
   }
 
 
+
+
   .filters {
     display: grid;
     grid-template-rows: repeat(13, 0.5fr);
@@ -281,6 +283,16 @@
       box-sizing: border-box;
       padding: 20px;
       transition-delay: 2s;
+    }
+  }
+
+  @media (width<420px) {
+    .catalog{
+      padding: 0px;
+      display: grid;
+      grid-template-rows: repeat(12, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
     }
   }
 
