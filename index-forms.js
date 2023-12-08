@@ -15,7 +15,15 @@ let paymentInfo = document.querySelector('.payment')
 let comments = document.querySelector('.comments')
 
 let finalPrice = document.querySelector('#finalPrice')
-finalPrice.textContent = 'XXX' + '$' //сюда добавить финальную цену
+
+fetch('http://localhost:3001/orders')
+    .then((response) => response.json())
+    .then((data) => {
+        let totalPrice = data[data.length - 1].totalPrice
+        finalPrice.textContent = totalPrice
+    })
+    .catch((err) => (finalPrice.textContent = 'Ошибка'))
+//сюда добавить финальную цену
 
 //появление и удаление доп инпута с улицей и домом в зависимости от выбора доставки до двери и самовывоза, соответственно
 let hide = document.querySelector('.formStreet')
@@ -135,5 +143,3 @@ const mailer = message => {
 }
 
 module.exports = mailer*/
-
-console.log(exportSum)
