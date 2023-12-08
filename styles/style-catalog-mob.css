@@ -6,6 +6,17 @@
   font-size: 16px;
   grid-column: 1/4;
 }
+    input[type='search'] {
+        display: block;
+        font-weight: 700;
+        font-size: 12px;
+        font-family: Manrope, sans-serif;
+        font-style: normal;
+        line-height: 20px;
+        letter-spacing: 0.56px;
+        text-transform: uppercase;
+    }
+    /* header */
 
 .not-found {
   text-align: center;
@@ -50,6 +61,7 @@
   }
 
   @media (width< 600px) {
+
     .header_logo,
     .footer_logo {
       padding: 10px;
