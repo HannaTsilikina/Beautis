@@ -25,18 +25,19 @@ function getBasketData() {
               <div class="total_sum"></div>
               </div>`
                 totalDiv.insertAdjacentHTML('beforeend', total)
+
                 data.forEach((object) => {
                     createBasketProduct(object)
 
                     let total = document.querySelector('.total_sum')
                     let prices = document.querySelectorAll('.basket_price')
                     let sum = 0
-                    pricesValues = prices.forEach((el) => {
+                    let pricesValues = prices.forEach((el) => {
                         sum = sum + parseInt(el.textContent)
                         total.textContent = `${sum}$ `
                     })
                 })
-                let exportSum = document.querySelector('.total_sum').innerHTML
+                // let exportSum = document.querySelector('.total_sum').innerHTML
 
                 let btnClose = document.querySelectorAll('.close')
                 btnClose.forEach((button) => {
@@ -97,7 +98,6 @@ function getBasketData() {
                                 pricesValues = prices.forEach((el) => {
                                     sum = sum + parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
-                                    let exportSum = `${sum}$ `
                                 })
                             }
                         })
@@ -131,10 +131,14 @@ function getBasketData() {
                             document.querySelector('.total_sum').innerHTML
                         moment.locale('ru')
                         let orderTime = moment().format('LLL')
+                        let idOfOrder = chance.natural({
+                            min: 100000,
+                            max: 999999,
+                        })
                         fetch('http://localhost:3001/orders', {
                             method: 'POST',
                             body: JSON.stringify({
-                                id: Math.floor(Math.random() * 100000),
+                                id: idOfOrder,
                                 products: getValues(),
                                 totalPrice: totalsum,
                                 time: orderTime,
