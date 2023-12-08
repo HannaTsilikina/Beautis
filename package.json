@@ -1,14 +1,25 @@
 {
     "name": "beautis",
     "version": "1.0.0",
-    "description": "",
+    "description": "Online store with cosmetics",
     "main": "index.js",
+    "private": true,
     "scripts": {
         "lint:css:fix": "npx stylelint \"styles/**/*.css\" --cache --fix",
         "server": "json-server --watch db.json -p 3001"
     },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/HannaTsilikina/fe67_Project3_group1.git"
+    },
     "keywords": [],
-    "author": "",
+    "author": [
+      "Hanna Tsilikina (https://github.com/HannaTsilikina)"
+      "Valeriya Privezentseva (https://github.com/Karjuzlik)"
+      "Elizaveta Bogdanova (https://github.com/elisprog)"
+      "Anastasiya Gorodilova (https://github.com/AnastasiaGorodilova)"
+      "Marina Mironenko (https://github.com/mironmari)"
+    ],
     "license": "ISC",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "dependencies": {
