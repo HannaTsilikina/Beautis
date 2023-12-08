@@ -1,11 +1,15 @@
 let mainDiv = document.querySelector('.catalog')
-
+document.querySelector('.cancel').classList.add('hidden')
 //создать массив объектов на базе json
 let submitall = document.getElementById('submitall') // обработчик событий на кнопку, тут надо чето добавить чтобы дефолтные значения не считались?
 
 submitall.addEventListener('click', getData)
 
 function getData() {
+    let davinesCheckbox = document.getElementById('davineschekbox')
+    let tigiCheckbox = document.getElementById('tigichekbox')
+    let morganCheckbox = document.getElementById('morganchekbox')
+    document.querySelector('.cancel').classList.remove('hidden')
     let input_pricemin = parseInt(
         document.getElementById('input_pricemin').value
     )
@@ -83,10 +87,6 @@ function getData() {
 
             //тут чекбоксы
 
-            let davinesCheckbox = document.getElementById('davineschekbox')
-            let tigiCheckbox = document.getElementById('tigichekbox')
-            let morganCheckbox = document.getElementById('morganchekbox')
-
             if (
                 davinesCheckbox.checked &&
                 tigiCheckbox.checked &&
@@ -133,6 +133,16 @@ function getData() {
                 filteredResult = filteredResult.filter(
                     (object) => object.brand === "Morgan's"
                 )
+            }
+
+            document.querySelector('.cancel').onclick = function clearInputs() {
+                davinesCheckbox.checked = false
+                morganCheckbox.checked = false
+                tigiCheckbox.checked = false
+                let inputs = document.querySelectorAll('.input-text')
+                inputs.forEach((input) => (input.value = ''))
+
+                window.location.reload()
             }
 
             while (mainDiv.firstChild) {
