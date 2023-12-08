@@ -18,7 +18,7 @@ _Small online store page with some hair cosmetics. It's a training project of ou
 -   Valeriya Privezentseva, project manager, frontend-developer [https://github.com/Karjuzlik]
 -   Elizaveta Bogdanova, frontend-developer, designer [https://github.com/elisprog]
 -   Anastasiya Gorodilova, frontend-developer, QA [https://github.com/AnastasiaGorodilova]
--   Marina Mironenko, frontend-developer
+-   Marina Mironenko, frontend-developer [https://github.com/mironmari]
 
 ### Functional
 
