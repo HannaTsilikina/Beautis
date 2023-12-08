@@ -66,6 +66,9 @@
     .footer_logo {
       padding: 10px;
     }
+    .header_basket-block {
+      font-size: 30px;
+    }
   }
 
   @media (width< 450px) {
