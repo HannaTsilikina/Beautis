@@ -121,6 +121,6 @@ finalButton.addEventListener('click', function checkAndSend() {
             .catch((err) => (console.log = 'Ошибка получения данных'))
 
         comments.innerHTML = ''
-        // document.location = 'index-done.html'
+        document.location = 'index-done.html'
     }
 })
