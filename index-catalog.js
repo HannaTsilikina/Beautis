@@ -41,15 +41,15 @@ function getData() {
             const jsonArray = Array.from(data)
 
             let filteredResult = [...jsonArray]
-
+            function priceWithDisc(obj) {
+              let newPriceVal =
+                  parseInt(obj.price) -
+                  (parseInt(obj.discount) / 100) * parseInt(obj.price)
+              const NewPrice = `${newPriceVal}$`
+              return NewPrice
+          }
             if (!isNaN(input_pricemax) && !isNaN(input_pricemin)) {
-                function priceWithDisc(obj) {
-                    let newPriceVal =
-                        parseInt(obj.price) -
-                        (parseInt(obj.discount) / 100) * parseInt(obj.price)
-                    const NewPrice = `${newPriceVal}$`
-                    return NewPrice
-                }
+
                 filteredResult = filteredResult.filter(
                     (value) =>
                         parseInt(priceWithDisc(value)) >= input_pricemin &&
@@ -62,9 +62,11 @@ function getData() {
                 )
             }
             if (!isNaN(input_pricemax) && isNaN(input_pricemin)) {
+
                 filteredResult = filteredResult.filter(
                     (value) => parseInt(priceWithDisc(value)) <= input_pricemax
-                )
+                                    )
+
             }
             if (!isNaN(input_ratemax) && !isNaN(input_ratemin)) {
                 filteredResult = filteredResult.filter(
