@@ -1,19 +1,23 @@
 let mainDiv = document.querySelector('.catalog')
-
+document.querySelector('.cancel').classList.add('hidden')
 //создать массив объектов на базе json
 let submitall = document.getElementById('submitall') // обработчик событий на кнопку, тут надо чето добавить чтобы дефолтные значения не считались?
 
 submitall.addEventListener('click', getData)
 
 function getData() {
+    let davinesCheckbox = document.getElementById('davineschekbox')
+    let tigiCheckbox = document.getElementById('tigichekbox')
+    let morganCheckbox = document.getElementById('morganchekbox')
+    document.querySelector('.cancel').classList.remove('hidden')
     let input_pricemin = parseInt(
         document.getElementById('input_pricemin').value
     )
-    console.log(input_pricemin)
+
     let input_pricemax = parseInt(
         document.getElementById('input_pricemax').value
     )
-    console.log(input_pricemax)
+
     let davinescheckbox = document.querySelector('#davineschekbox')
 
     let tigicheckbox = document.querySelector('#tigichekbox')
@@ -25,12 +29,10 @@ function getData() {
     const brandFilterValue = brandFilter.map(function (brand) {
         return brand.value
     })
-    console.log(brandFilterValue)
-
     let input_ratemin = parseInt(document.getElementById('input_ratemin').value)
-    console.log(input_ratemin)
+
     let input_ratemax = parseInt(document.getElementById('input_ratemax').value)
-    console.log(input_ratemax)
+
     fetch('http://localhost:3001/products', {
         method: 'GET',
     })
@@ -42,14 +44,13 @@ function getData() {
 
             let filteredResult = [...jsonArray]
             function priceWithDisc(obj) {
-              let newPriceVal =
-                  parseInt(obj.price) -
-                  (parseInt(obj.discount) / 100) * parseInt(obj.price)
-              const NewPrice = `${newPriceVal}$`
-              return NewPrice
-          }
+                let newPriceVal =
+                    parseInt(obj.price) -
+                    (parseInt(obj.discount) / 100) * parseInt(obj.price)
+                const NewPrice = `${newPriceVal}$`
+                return NewPrice
+            }
             if (!isNaN(input_pricemax) && !isNaN(input_pricemin)) {
-
                 filteredResult = filteredResult.filter(
                     (value) =>
                         parseInt(priceWithDisc(value)) >= input_pricemin &&
@@ -62,11 +63,9 @@ function getData() {
                 )
             }
             if (!isNaN(input_pricemax) && isNaN(input_pricemin)) {
-
                 filteredResult = filteredResult.filter(
                     (value) => parseInt(priceWithDisc(value)) <= input_pricemax
-                                    )
-
+                )
             }
             if (!isNaN(input_ratemax) && !isNaN(input_ratemin)) {
                 filteredResult = filteredResult.filter(
@@ -84,6 +83,85 @@ function getData() {
                 filteredResult = filteredResult.filter(
                     (value) => parseInt(value.ranking) <= input_ratemax
                 )
+            }
+
+            //тут чекбоксы
+
+            if (
+                morganCheckbox.checked &&
+                tigiCheckbox.checked &&
+                !davinesCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == "Morgan's") return object
+                    if (object.brand == 'TIGI') return object
+                })
+            }
+
+            if (
+                morganCheckbox.checked &&
+                davinesCheckbox.checked &&
+                !tigiCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == 'Davines') return object
+                    if (object.brand == "Morgan's") return object
+                })
+            }
+
+            if (
+                tigiCheckbox.checked &&
+                davinesCheckbox.checked &&
+                !morganCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter((object) => {
+                    if (object.brand == 'TIGI') {
+                        return object
+                    }
+                    if (object.brand == 'Davines') {
+                        return object
+                    }
+                })
+                console.log(filteredResult)
+            }
+
+            if (
+                tigiCheckbox.checked &&
+                !morganCheckbox.checked &&
+                !davinesCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === 'TIGI'
+                )
+            }
+
+            if (
+                !tigiCheckbox.checked &&
+                morganCheckbox.checked &&
+                !davinesCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === "Morgan's"
+                )
+            }
+            if (
+                !tigiCheckbox.checked &&
+                !morganCheckbox.checked &&
+                davinesCheckbox.checked
+            ) {
+                filteredResult = filteredResult.filter(
+                    (object) => object.brand === 'Davines'
+                )
+            }
+
+            document.querySelector('.cancel').onclick = function clearInputs() {
+                davinesCheckbox.checked = false
+                morganCheckbox.checked = false
+                tigiCheckbox.checked = false
+                let inputs = document.querySelectorAll('.input-text')
+                inputs.forEach((input) => (input.value = ''))
+
+                window.location.reload()
             }
 
             while (mainDiv.firstChild) {
@@ -307,5 +385,4 @@ function performSearch() {
         })
         .catch((error) => console.error('Ошибка при загрузке данных:', error))
 }
-moment.locale('ru')
-console.log(moment().format('LLL'))
+

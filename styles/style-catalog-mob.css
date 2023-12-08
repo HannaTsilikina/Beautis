@@ -6,6 +6,17 @@
   font-size: 16px;
   grid-column: 1/4;
 }
+    input[type='search'] {
+        display: block;
+        font-weight: 700;
+        font-size: 12px;
+        font-family: Manrope, sans-serif;
+        font-style: normal;
+        line-height: 20px;
+        letter-spacing: 0.56px;
+        text-transform: uppercase;
+    }
+    /* header */
 
 .not-found {
   text-align: center;
@@ -50,6 +61,7 @@
   }
 
   @media (width< 600px) {
+
     .header_logo,
     .footer_logo {
       padding: 10px;
@@ -103,6 +115,8 @@
     box-sizing: border-box;
     padding: 70px 0;
   }
+
+
 
 
   .filters {
@@ -281,6 +295,16 @@
       box-sizing: border-box;
       padding: 20px;
       transition-delay: 2s;
+    }
+  }
+
+  @media (width<420px) {
+    .catalog{
+      padding: 0px;
+      display: grid;
+      grid-template-rows: repeat(12, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
     }
   }
 

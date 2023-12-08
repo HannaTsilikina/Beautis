@@ -15,7 +15,15 @@ let paymentInfo = document.querySelector('.payment')
 let comments = document.querySelector('.comments')
 
 let finalPrice = document.querySelector('#finalPrice')
-finalPrice.textContent = 'XXX' + '$' //сюда добавить финальную цену
+
+fetch('http://localhost:3001/orders')
+    .then((response) => response.json())
+    .then((data) => {
+        let totalPrice = data[data.length - 1].totalPrice
+        finalPrice.textContent = totalPrice
+    })
+    .catch((err) => (finalPrice.textContent = 'Ошибка'))
+//сюда добавить финальную цену
 
 //появление и удаление доп инпута с улицей и домом в зависимости от выбора доставки до двери и самовывоза, соответственно
 let hide = document.querySelector('.formStreet')
@@ -97,14 +105,26 @@ finalButton.addEventListener('click', function checkAndSend() {
             address: streetInfo.value,
             payment: paymentInfo.value,
         }
+        fetch('http://localhost:3001/orders')
+            .then((response) => response.json())
+            .then((data) => {
+                let infoOrder = data[data.length - 1]
+
+                fetch('http://localhost:3001/totalOrders', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        customer: x,
+                        order: infoOrder,
+                    }),
+                    headers: { 'Content-type': 'application/json' },
+                }).then((response) => {
+                    console.log(response)
+                })
+            })
+            .catch((err) => (console.log = 'Ошибка получения данных'))
+
         comments.innerHTML = ''
-        fetch('http://localhost:3001/order-details', {
-            method: 'POST',
-            body: JSON.stringify(x),
-            headers: { 'Content-type': 'application/json' },
-        }).then((response) => {
-            console.log(response)
-        })
+        document.location = 'index-done.html'
     }
 })
 
@@ -135,5 +155,3 @@ const mailer = message => {
 }
 
 module.exports = mailer*/
-
-console.log(exportSum)
