@@ -103,6 +103,50 @@ function getBasketData() {
                         })
                     }
                 })
+                btnOrder.addEventListener(
+                    'click',
+                    function postDataAndChangeWindow() {
+                        window.location.href = './index-forms.html'
+                        function getValues() {
+                            let arrayOfChosen = []
+                            document
+                                .querySelectorAll('.item')
+                                .forEach((item) => {
+                                    let itemValue =
+                                        item.querySelector(
+                                            '.basket_input'
+                                        ).value
+                                    let name = item.querySelector(
+                                        '.basket_products__name'
+                                    ).innerHTML
+                                    let obj = {
+                                        item: name,
+                                        quantity: itemValue,
+                                    }
+                                    arrayOfChosen.push(obj)
+                                })
+                            return arrayOfChosen
+                        }
+                        totalsum =
+                            document.querySelector('.total_sum').innerHTML
+
+                        fetch('http://localhost:3001/orders', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                id: Math.floor(Math.random() * 100000),
+                                products: getValues(),
+                                totalPrice: totalsum,
+                            }),
+                            headers: {
+                                'Content-type': 'application/json',
+                            },
+                        })
+                            .then((response) => {
+                                console.log(response)
+                            })
+                            .catch((err) => console.log(err.message))
+                    }
+                )
             } else {
                 const basketNoProducts = document.querySelector('#no-products')
                 basketNoProducts.textContent = 'В корзине нет товаров'
