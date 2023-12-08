@@ -160,21 +160,21 @@ function createBasketProduct(obj) {
                     .then((response) => response.json())
                     .then((data) => {
                         data.forEach((el) => {
-                            if (cardWithId.id == el.id) {
+                            if (cardWithId.id === el.id) {
                                 let finalPrice =
-                                    parseInt(el.price) * inputValue.value
+                                    parseInt(priceWithDisc(el)) *
+                                    inputValue.value
                                 mainCard.querySelector(
                                     '.basket_price'
                                 ).textContent = `${finalPrice}$`
                                 let total = document.querySelector('.total_sum')
                                 let prices =
                                     document.querySelectorAll('.basket_price')
-                                let sum = 0
+                                sum = 0
                                 pricesValues = prices.forEach((el) => {
-                                    sum = sum + parseInt(el.textContent)
+                                    sum = sum + +parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
                                     let exportSum = `${sum}$ `
-                                    console.log(exportSum)
                                 })
                             }
                         })
@@ -185,6 +185,14 @@ function createBasketProduct(obj) {
             }
         }
     })
+
+    function priceWithDisc(obj) {
+        let newPriceVal =
+            parseInt(obj.price) -
+            (parseInt(obj.discount) / 100) * parseInt(obj.price)
+        const NewPrice = `${newPriceVal}$`
+        return NewPrice
+    }
 
     plusButtons.forEach((element) => {
         element.onclick = function (event) {
@@ -199,9 +207,9 @@ function createBasketProduct(obj) {
                 .then((response) => response.json())
                 .then((data) => {
                     data.forEach((el) => {
-                        if (cardWithId.id == el.id) {
+                        if (cardWithId.id === el.id) {
                             let finalPrice =
-                                parseInt(el.price) * inputValue.value
+                                parseInt(priceWithDisc(el)) * inputValue.value
 
                             mainCard.querySelector(
                                 '.basket_price'
@@ -209,9 +217,9 @@ function createBasketProduct(obj) {
                             let total = document.querySelector('.total_sum')
                             let prices =
                                 document.querySelectorAll('.basket_price')
-
+                            sum = 0
                             pricesValues = prices.forEach((el) => {
-                                sum = sum + parseInt(el.textContent)
+                                sum = sum + +parseInt(el.textContent)
                                 total.textContent = `${sum}$ `
                                 let exportSum = `${sum}$ `
                             })
