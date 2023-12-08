@@ -385,5 +385,4 @@ function performSearch() {
         })
         .catch((error) => console.error('Ошибка при загрузке данных:', error))
 }
-moment.locale('ru')
-console.log(moment().format('LLL'))
+

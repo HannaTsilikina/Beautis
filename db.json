@@ -123,6 +123,26 @@
     ],
     "chosenProducts": [
         {
+            "id": "6",
+            "brand": "TIGI",
+            "name": "Шампунь для окрашенных волос TIGI Colour Goddess",
+            "size": "400 мл",
+            "ranking": "2",
+            "price": "18$",
+            "discount": "0%",
+            "image": "./images/6.jpeg"
+        },
+        {
+            "id": "7",
+            "brand": "TIGI",
+            "name": "Гель мусс для волос TIGI Foxy Curls",
+            "size": "250 мл",
+            "ranking": "5",
+            "price": "40$",
+            "discount": "0%",
+            "image": "./images/7.png"
+        },
+        {
             "id": "1",
             "brand": "Davines",
             "name": "Масло для волос Davines OI Oil",
@@ -131,50 +151,58 @@
             "price": "50$",
             "discount": "40%",
             "image": "./images/1.jpeg"
-        },
-        {
-            "id": "2",
-            "brand": "Davines",
-            "name": "Кондиционер для волос Davines OI CONDITIONER",
-            "size": "150 мл",
-            "ranking": "5",
-            "price": "25$",
-            "discount": "0%",
-            "image": "./images/2.jpeg"
-        },
-        {
-            "id": "3",
-            "brand": "Davines",
-            "name": "Баттер для волос Davines OI HAIR BUTTER",
-            "size": "250 мл",
-            "ranking": "5",
-            "price": "40$",
-            "discount": "0%",
-            "image": "./images/3.jpeg"
-        },
-        {
-            "id": "4",
-            "brand": "Davines",
-            "name": "Сыворотка для волос Davines OI Oil Absolute COLOUR GLOSS",
-            "size": "15 мл",
-            "ranking": "4",
-            "price": "10$",
-            "discount": "20%",
-            "image": "./images/4.jpeg"
         }
     ],
-    "orders": [],
-    "order-details": [
+    "orders": [
         {
-            "name": "x",
-            "surname": "x",
-            "email": "x",
-            "delivery": "getByMyself",
-            "city": "Бухарест",
-            "address": "x",
-            "payment": "cash",
-            "id": 1
+            "id": 93525,
+            "products": [
+                {
+                    "item": "Шампунь для окрашенных волос TIGI Colour Goddess",
+                    "quantity": "1"
+                },
+                {
+                    "item": "Гель мусс для волос TIGI Foxy Curls",
+                    "quantity": "1"
+                }
+            ],
+            "totalPrice": "58$ ",
+            "time": "8 декабря 2023 г., 21:30"
+        },
+        {
+            "id": 2662,
+            "products": [
+                {
+                    "item": "Шампунь для окрашенных волос TIGI Colour Goddess",
+                    "quantity": "1"
+                },
+                {
+                    "item": "Гель мусс для волос TIGI Foxy Curls",
+                    "quantity": "1"
+                }
+            ],
+            "totalPrice": "58$ ",
+            "time": "8 декабря 2023 г., 21:34"
+        },
+        {
+            "id": 8278,
+            "products": [
+                {
+                    "item": "Шампунь для окрашенных волос TIGI Colour Goddess",
+                    "quantity": "1"
+                },
+                {
+                    "item": "Гель мусс для волос TIGI Foxy Curls",
+                    "quantity": "1"
+                },
+                {
+                    "item": "Масло для волос Davines OI Oil",
+                    "quantity": "3"
+                }
+            ],
+            "totalPrice": "148$ ",
+            "time": "8 декабря 2023 г., 21:36"
         }
-    ]
+    ],
+    "totalOrders": []
 }
-

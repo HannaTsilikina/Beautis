@@ -129,13 +129,15 @@ function getBasketData() {
                         }
                         totalsum =
                             document.querySelector('.total_sum').innerHTML
-
+                        moment.locale('ru')
+                        let orderTime = moment().format('LLL')
                         fetch('http://localhost:3001/orders', {
                             method: 'POST',
                             body: JSON.stringify({
                                 id: Math.floor(Math.random() * 100000),
                                 products: getValues(),
                                 totalPrice: totalsum,
+                                time: orderTime,
                             }),
                             headers: {
                                 'Content-type': 'application/json',
@@ -218,7 +220,6 @@ function createBasketProduct(obj) {
                                 pricesValues = prices.forEach((el) => {
                                     sum = sum + +parseInt(el.textContent)
                                     total.textContent = `${sum}$ `
-                                    let exportSum = `${sum}$ `
                                 })
                             }
                         })
@@ -265,7 +266,6 @@ function createBasketProduct(obj) {
                             pricesValues = prices.forEach((el) => {
                                 sum = sum + +parseInt(el.textContent)
                                 total.textContent = `${sum}$ `
-                                let exportSum = `${sum}$ `
                             })
                         }
                     })
@@ -279,5 +279,3 @@ function createBasketProduct(obj) {
 document.addEventListener('DOMContentLoaded', () => {
     getBasketData()
 })
-
-// export default '*'
