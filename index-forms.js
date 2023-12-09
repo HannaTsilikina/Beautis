@@ -116,37 +116,31 @@ finalButton.addEventListener('click', function checkAndSend() {
                 }).then((response) => {
                     console.log(response)
 
-                    // fetch(`http://localhost:3001/chosenProducts`)
-                    //     .then((res) => {
-                    //         res.json()
-                    //         console.log(res)
-                    //     })
-                    //     .then((dataToDel) => {
-                    //         console.log(dataToDel)
-                    //         dataToDel.forEach((el) =>
-                    //             fetch(
-                    //                 `http://localhost:3001/chosenProducts/${el.id}`,
-                    //                 {
-                    //                     method: 'DELETE',
-                    //                 }
-                    //             )
-                    //                 .then((res) => {
-                    //                     console.log(res)
-                    //                     return res
-                    //                 })
-                    //                 .catch((error) => {
-                    //                     console.error('Ошибка:', error)
-                    //                 })
-                    //         )
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error('Ошибка:', error)
-                    //     })
-
                     document.location = 'index-done.html'
                 })
             })
             .catch((err) => (console.log = 'Ошибка получения данных'))
+        fetch('http://localhost:3001/chosenProducts')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                data.forEach((el) => {
+                    console.log(el)
+                    fetch(`http://localhost:3001/chosenProducts/${el.id}`, {
+                        method: 'DELETE',
+                    })
+                        .then((res) => {
+                            console.log(res)
+                            return res
+                        })
+                        .catch((error) => {
+                            console.error('Ошибка:', error)
+                        })
+                })
+            })
+            .catch((error) => {
+                console.error('Ошибка:', error)
+            })
 
         comments.innerHTML = ''
     }
