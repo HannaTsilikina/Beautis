@@ -24,9 +24,6 @@
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-import": "^2.29.0",
         "moment": "^2.29.4",
-        "numbers.js": "^1.0.1",
-        "random": "^4.1.0",
-        "random.js": "^0.1.0",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^6.0.3",
         "stylelint-prettier": "^4.1.0"
