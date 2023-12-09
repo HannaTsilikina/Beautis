@@ -186,6 +186,8 @@ function getData() {
 // Создание каталога
 
 // const { response } = require('express')
+let headerBasketImg= document.querySelector('.header_basket-img')
+console.log(headerBasketImg)
 
 fetch('http://localhost:3001/products', {
     method: 'GET',
@@ -233,7 +235,7 @@ function toBasket(evt, data) {
                 },
             })
                 .then((response) => {
-                    console.log(response)
+                 console.log(response)
                 })
                 .catch((err) => console.log(err.message))
         }
@@ -318,6 +320,20 @@ function newPost(obj) {
         buttonBuy.classList.remove('button-buy')
     }
 }
+
+fetch('http://localhost:3001/chosenProducts')
+		.then((response) => response.json())
+		.then((data) => {
+      if(!data.length == 0) {
+        headerBasketImg.classList.remove('header_basket-img')
+        headerBasketImg.classList.add('header_basket-img-change')
+      	console.log(1,data)}
+		})
+		.catch((error) => {
+			console.error('Ошибка:', error);
+		});
+
+
 
 function drawRate(count, divToDraw) {
     for (let i = 1; i <= count; i++) {

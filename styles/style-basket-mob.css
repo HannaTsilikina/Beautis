@@ -163,7 +163,10 @@
   }
 
   .footer_logo > img {
-    max-width: 350px;
+    max-width: 280px;
+  }
+  .header_logo > a > img {
+    max-width: 280px;
   }
 
   .footer_blocks {
