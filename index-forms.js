@@ -1,5 +1,3 @@
-// import './index-basket'
-
 let name = document.querySelector('.name')
 let surname = document.querySelector('.surname')
 let email = document.querySelector('.email')
@@ -23,7 +21,6 @@ fetch('http://localhost:3001/orders')
         finalPrice.textContent = totalPrice
     })
     .catch((err) => (finalPrice.textContent = 'Ошибка'))
-//сюда добавить финальную цену
 
 //появление и удаление доп инпута с улицей и домом в зависимости от выбора доставки до двери и самовывоза, соответственно
 let hide = document.querySelector('.formStreet')
@@ -109,7 +106,7 @@ finalButton.addEventListener('click', function checkAndSend() {
             .then((response) => response.json())
             .then((data) => {
                 let infoOrder = data[data.length - 1]
-
+                console.log(data)
                 fetch('http://localhost:3001/totalOrders', {
                     method: 'POST',
                     body: JSON.stringify({
@@ -119,39 +116,11 @@ finalButton.addEventListener('click', function checkAndSend() {
                     headers: { 'Content-type': 'application/json' },
                 }).then((response) => {
                     console.log(response)
+                    document.location = 'index-done.html'
                 })
             })
             .catch((err) => (console.log = 'Ошибка получения данных'))
 
         comments.innerHTML = ''
-        document.location = 'index-done.html'
     }
 })
-
-/*
-//работа с модулем Nodemailer
-const nodemailer = require('nodemailer')
-
-const transporter = nodemailer.createTransport(
-    {
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: 'bogdanovaelis@gmail.com',
-            pass: 'elissyele11'
-        }
-    },
-    {
-        from: 'Mailer Test <bogdanovaelis@gmail.com>'
-    }
-)
-
-const mailer = message => {
-    transporter.sendMail(message, (err, info) => {
-        if(err) return console.log(err)
-        console.log('Email sent: ', info)
-    })
-}
-
-module.exports = mailer*/

@@ -149,70 +149,10 @@
           "item": "Гель мусс для волос TIGI Foxy Curls",
           "quantity": "1"
         }
-      ],
-      "totalPrice": "58$ ",
-      "time": "8 декабря 2023 г., 21:34"
-    },
-    {
-      "id": 8278,
-      "products": [
-        {
-          "item": "Шампунь для окрашенных волос TIGI Colour Goddess",
-          "quantity": "1"
-        },
-        {
-          "item": "Гель мусс для волос TIGI Foxy Curls",
-          "quantity": "1"
-        },
-        {
-          "item": "Масло для волос Davines OI Oil",
-          "quantity": "3"
-        }
-      ],
-      "totalPrice": "148$ ",
-      "time": "8 декабря 2023 г., 21:36"
-    },
-    {
-      "id": 52652,
-      "products": [
-        {
-          "item": "Шампунь для окрашенных волос TIGI Colour Goddess",
-          "quantity": "1"
-        },
-        {
-          "item": "Гель мусс для волос TIGI Foxy Curls",
-          "quantity": "1"
-        },
-        {
-          "item": "Масло для волос Davines OI Oil",
-          "quantity": "1"
-        }
-      ],
-      "totalPrice": "88$ ",
-      "time": "8 декабря 2023 г., 21:51"
-    },
-    {
-      "id": 63809,
-      "products": [
-        {
-          "item": "Масло для волос Davines OI Oil",
-          "quantity": "1"
-        }
-      ],
-      "totalPrice": "30$ ",
-      "time": "8 декабря 2023 г., 21:53"
-    },
-    {
-      "id": 16545,
-      "products": [
-        {
-          "item": "Масло для волос Davines OI Oil",
-          "quantity": "1"
-        }
-      ],
-      "totalPrice": "30$ ",
-      "time": "8 декабря 2023 г., 21:56"
-    }
-  ],
-  "totalOrders": []
+
+    ],
+    "chosenProducts": [],
+    "orders": [],
+    "totalOrders": []
 }
+

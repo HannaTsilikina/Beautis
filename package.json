@@ -2,33 +2,31 @@
     "name": "beautis",
     "version": "1.0.0",
     "description": "Online store with cosmetics",
-    "main": "index.js",
+    "exports": "./index.js",
     "private": true,
     "scripts": {
         "lint:css:fix": "npx stylelint \"styles/**/*.css\" --cache --fix",
         "server": "json-server --watch db.json -p 3001"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/HannaTsilikina/fe67_Project3_group1.git"
+        "type": "git",
+        "url": "https://github.com/HannaTsilikina/fe67_Project3_group1.git"
     },
     "keywords": [],
-    "author": [
-      "Hanna Tsilikina (https://github.com/HannaTsilikina)"
-      "Valeriya Privezentseva (https://github.com/Karjuzlik)"
-      "Elizaveta Bogdanova (https://github.com/elisprog)"
-      "Anastasiya Gorodilova (https://github.com/AnastasiaGorodilova)"
-      "Marina Mironenko (https://github.com/mironmari)"
-    ],
+    "author": "Hanna Tsilikina, Valeriya Privezentseva, Elizaveta Bogdanova, Anastasiya Gorodilova Marina Mironenko",
     "license": "ISC",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "dependencies": {
         "@babel/eslint-parser": "^7.23.3",
+        "chance": "^1.1.11",
         "eslint": "^8.54.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-import": "^2.29.0",
         "moment": "^2.29.4",
+        "numbers.js": "^1.0.1",
+        "random": "^4.1.0",
+        "random.js": "^0.1.0",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^6.0.3",
         "stylelint-prettier": "^4.1.0"
