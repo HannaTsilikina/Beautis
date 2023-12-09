@@ -234,8 +234,6 @@ function toBasket(evt, data) {
                 },
             })
                 .then((response) => {
-                    console.log(response)
-
                     headerBasketImg.classList.remove('header_basket-img')
                     headerBasketImg.classList.add('header_basket-img-change')
                 })
