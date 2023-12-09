@@ -106,7 +106,6 @@ finalButton.addEventListener('click', function checkAndSend() {
             .then((response) => response.json())
             .then((data) => {
                 let infoOrder = data[data.length - 1]
-                console.log(data)
                 fetch('http://localhost:3001/totalOrders', {
                     method: 'POST',
                     body: JSON.stringify({
@@ -116,6 +115,34 @@ finalButton.addEventListener('click', function checkAndSend() {
                     headers: { 'Content-type': 'application/json' },
                 }).then((response) => {
                     console.log(response)
+
+                    // fetch(`http://localhost:3001/chosenProducts`)
+                    //     .then((res) => {
+                    //         res.json()
+                    //         console.log(res)
+                    //     })
+                    //     .then((dataToDel) => {
+                    //         console.log(dataToDel)
+                    //         dataToDel.forEach((el) =>
+                    //             fetch(
+                    //                 `http://localhost:3001/chosenProducts/${el.id}`,
+                    //                 {
+                    //                     method: 'DELETE',
+                    //                 }
+                    //             )
+                    //                 .then((res) => {
+                    //                     console.log(res)
+                    //                     return res
+                    //                 })
+                    //                 .catch((error) => {
+                    //                     console.error('Ошибка:', error)
+                    //                 })
+                    //         )
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error('Ошибка:', error)
+                    //     })
+
                     document.location = 'index-done.html'
                 })
             })
